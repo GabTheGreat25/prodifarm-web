@@ -1,0 +1,114 @@
+.btn {
+  @apply rounded-lg px-2 py-2 bg-primary-variant;
+
+  &.btn-lg {
+    @apply px-4 py-2;
+  }
+  &.btn-xl {
+    @apply px-6 py-2;
+  }
+}
+.card-border {
+  @apply border-primary-variant border-2 border-opacity-50;
+}
+.categories {
+  @apply grid grid-flow-row py-5 mx-auto;
+
+  .category-container {
+    @apply grid gap-3;
+    color: white;
+    @screen lg {
+      @apply grid grid-cols-3;
+    }
+
+    .category {
+      &.ingredients {
+        background-size: 70%;
+        @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-right-bottom card-border;
+        .category-content {
+          .category-heading {
+            @apply text-xl mb-3;
+          }
+        }
+      }
+      &.rice-fruit {
+        display: grid;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        grid-gap: 1rem;
+
+        .rice {
+          background-size: 60%;
+          @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-right-bottom card-border;
+          .category-content {
+            @apply w-3/5;
+            .category-heading {
+              @apply text-xl mb-3;
+            }
+          }
+        }
+        .fruit {
+          background-size: 40%;
+          @apply rounded-lg bg-primary-t2 p-5 bg-no-repeat bg-left-bottom card-border;
+          .category-content {
+            @apply w-3/5 ml-auto pt-1;
+            @apply flex flex-col justify-end items-end;
+            .category-heading {
+              @apply text-xl mb-3;
+            }
+          }
+        }
+      }
+
+      &.meat-fish {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        .meat {
+          background-size: 65%;
+          @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-right-bottom card-border;
+          @screen lg {
+            background-size: 100%;
+            @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-bottom card-border;
+          }
+          .category-content {
+            @apply flex flex-col justify-center;
+            @screen md {
+              @apply items-start;
+            }
+            .category-heading {
+              @apply text-xl mb-3 text-left;
+              @screen lg {
+                @apply text-center;
+              }
+            }
+          }
+        }
+
+        .fish {
+          background-size: 50%;
+          @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-left-top card-border;
+          @screen lg {
+            background-size: 70%;
+            @apply rounded-lg bg-primary-t2 p-8 bg-no-repeat bg-top card-border;
+          }
+          .category-content {
+            @apply flex flex-col justify-center;
+            @screen md {
+              @apply items-end;
+            }
+            @screen lg {
+              @apply pt-48 mb-6 items-center;
+            }
+            .category-heading {
+              @apply text-xl mb-3 text-right;
+              @screen lg {
+                @apply text-center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

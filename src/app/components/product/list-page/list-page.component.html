@@ -1,0 +1,58 @@
+<section class="list-page">
+  <aside class="filters">
+    <div class="sidebar-header">
+      <h1 class="heading">Filters</h1>
+      <app-icon name="filter"></app-icon>
+    </div>
+    <fieldset class="filter-section">
+      <legend class="heading">Categories</legend>
+      <div class="content">
+        <div class="check-group" *ngFor="let category of categories">
+          <input
+            class="form-control"
+            [id]="category.name"
+            type="checkbox"
+            [name]="category.name"
+            [value]="category.name"
+            aria-label="checkbox"
+          />
+          <label [for]="category.name">{{ category.text }}</label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="filter-section">
+      <legend class="heading">Price Range (<span [innerHTML]="currency.peso"></span>)</legend>
+      <div class="number-group">
+        <input type="number" class="form-control" name="min" id="min" placeholder="Min" />
+        <span>to</span>
+        <input type="number" class="form-control" name="min" id="max" placeholder="Max" />
+      </div>
+      <button class="rangeButton">Apply</button>
+    </fieldset>
+    <div class="filter-section">
+      <h1 class="heading">Rating</h1>
+      <ng-container *ngFor="let number of ratingFilters">
+        <button class="text-2xl grid grid-flow-col gap-3 items-center justify-start" (click)="filterByRating(number)">
+          <app-rating [rating]="number"></app-rating>
+          <span *ngIf="number < 5" class="text-base text-neutral-300">Above</span>
+        </button>
+      </ng-container>
+      <a></a>
+    </div>
+  </aside>
+  <main>
+    <h1 class="mb-6 font-bold">{{ title }}</h1>
+    <div class="sortButtons grid grid-flow-col items-center gap-4 justify-start">
+      <p>Sort</p>
+      <button
+        class="sortButton"
+        [ngClass]="{ active: sortState == button.type }"
+        *ngFor="let button of sortButtons"
+        (click)="sortProducts(button.type)"
+      >
+        {{ button.type | titlecase }}
+      </button>
+    </div>
+    <app-product-list [products]="products" containerClass="grid grid-cols-3 gap-3 my-6"></app-product-list>
+  </main>
+</section>

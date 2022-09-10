@@ -1,0 +1,14 @@
+<div class="form-container" [formGroup]="form">
+  <label class="radio-group payment" for="cod">
+    <input type="radio" value="cod" id="cod" formControlName="paymentMethod" />
+    <span>COD (Cash on Delivery)</span>
+  </label>
+  <label class="radio-group payment" for="gcash">
+    <input type="radio" value="gcash" id="gcash" formControlName="paymentMethod" />
+    <span><app-icon name="gcash"></app-icon> GCash</span>
+  </label>
+  <label class="radio-group payment" for="paypal">
+    <input type="radio" value="paypal" id="paypal" formControlName="paymentMethod" />
+    <span><app-icon name="paypal"></app-icon> Paypal</span>
+  </label>
+</div>

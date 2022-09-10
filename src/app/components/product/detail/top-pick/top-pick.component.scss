@@ -1,0 +1,24 @@
+@import "button.scss";
+@import "layouts.scss";
+@import "scrollbar.scss";
+section.top-picks {
+  @apply bg-white p-8 text-black rounded-lg mb-4 mvw-90 text-center;
+  .top-products {
+    @apply grid grid-flow-col gap-6 max-w-full overflow-x-scroll scrollbar;
+    @screen md {
+      @apply block;
+    }
+    .product-link {
+      @apply pointer-events-auto mb-4;
+      cursor: pointer;
+      .thumbnail-xs {
+        @screen md {
+          @apply thumbnail-sm;
+        }
+      }
+    }
+  }
+  @screen md {
+    @apply mvh-80 overflow-y-scroll scrollbar;
+  }
+}

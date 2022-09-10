@@ -1,0 +1,48 @@
+<main class="checkoutPage">
+  <div class="content">
+    <section class="orders">
+      <h1 class="heading">Order List</h1>
+      <div class="order-list">
+        <app-order-item [orderItem]="cartProduct" *ngFor="let cartProduct of cartProducts"></app-order-item>
+      </div>
+    </section>
+    <section class="billing">
+      <form [formGroup]="form" class="form-container" (submit)="checkout(form)">
+        <div class="form-section">
+          <h1 class="section-title">Shipping Address</h1>
+          <app-contact-form formControlName="contact"></app-contact-form>
+          <app-shipping-address-form formControlName="shippingAdd"></app-shipping-address-form>
+        </div>
+        <div class="form-section">
+          <h1 class="section-title">Select Payment Method</h1>
+          <payment-method-form formControlName="paymentMethod"></payment-method-form>
+        </div>
+        <app-billing>
+          <h1 breakdown-title class="text-black mb-3 text-lg font-semibold">Billing Summary</h1>
+          <li breakdown-item class="grid grid-flow-col justify-between items-center">
+            <span>Subtotal ({{ totalItems }} items)</span>
+            <span>{{ subtotal | currency: "PHP" }}</span>
+          </li>
+          <li breakdown-item class="grid grid-flow-col justify-between items-center">
+            <span>Shipping Fee</span>
+            <span>{{ shippingFee | currency: "PHP" }}</span>
+          </li>
+          <h1 total-text>Total</h1>
+          <div amount class="text-right">
+            <h2 class="text-primary">{{ total | currency: "PHP" }}</h2>
+            <small class="block">VAT included when applicable</small>
+          </div>
+          <button
+            type="submit"
+            checkout
+            class="btn-primaryBg w-full"
+            routerLink="/checkout"
+            [disabled]="!cartProducts.length || form.invalid"
+          >
+            Proceed on Checkout ({{ totalItems }})
+          </button>
+        </app-billing>
+      </form>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,29 @@
+<div class="purchaseItem">
+  <div class="header">
+    <h1>
+      <app-icon name="house"></app-icon>
+      PromdiFarm
+      <span class="prep-msg">
+        <app-icon name="chat"></app-icon>
+        Seller is preparing your products
+      </span>
+    </h1>
+    <span class="badge-pill primary">To ship</span>
+  </div>
+  <div class="body">
+    <div class="product-info">
+      <img class="thumbnail-xs" [lazyBgImage]="_order?.thumbnail ?? ''" [alt]="_order?.name" />
+      <div class="product-details">
+        <h1>{{ _order?.name }}</h1>
+        <p>x{{ _order?.quantity }}</p>
+      </div>
+    </div>
+    <div class="price">
+      <p>{{ _order?.price | currency: "PHP" }}</p>
+    </div>
+  </div>
+  <div class="footer">
+    <p class="text-center mb-4">Order Total: {{ _order?.price | currency: "PHP" }}</p>
+    <button class="btn-primaryBg">Contact Farmer</button>
+  </div>
+</div>

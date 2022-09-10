@@ -1,0 +1,13 @@
+<section class="otp" [lazyBgImage]="promdiGreenBg" [isBg]="true">
+  <div class="otp-container">
+    <button aria-label="Link" class="btn-arrow-otp" routerLink="/"><app-icon class="arrow" name="arrowLeft"></app-icon></button>
+    <h1 class="otp-header">OTP Verification</h1>
+    <p class="otp-verify">You will need to verify your phone number to complete registration.</p>
+    <img image [lazyBgImage]="oneTimepassword" alt="One Time Password" class="onetimeimg" />
+    <div class="otp-sub">
+      <p>Enter the OTP that has been sent to phone number +63995359318.</p>
+      <p>If you have not received an OTP after a few minutes, you can resend again.</p>
+    </div>
+    <button class="btn-submit">RESEND OTP</button>
+  </div>
+</section>

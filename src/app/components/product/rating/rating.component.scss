@@ -1,0 +1,15 @@
+:host {
+  --star-color: #516579;
+  --star-background: gold;
+}
+
+.rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  &::before {
+    content: "\002605\002605\002605\002605\002605";
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

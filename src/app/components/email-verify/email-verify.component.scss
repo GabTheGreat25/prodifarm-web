@@ -1,0 +1,54 @@
+section.email-verify {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  @apply px-4 bg-no-repeat bg-cover;
+
+  .email-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    @apply grid grid-flow-row bg-white rounded-xl mx-auto text-center p-4;
+
+    .btn-back {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .email-item {
+      width: 2rem;
+    }
+
+    .email-title {
+      @apply text-primary text-xl font-bold;
+      @screen md {
+        @apply text-2xl;
+      }
+    }
+
+    .email-info {
+      @apply text-neutral-primary text-sm;
+
+      @screen lg {
+        @apply text-lg;
+      }
+    }
+
+    .emailImg {
+      height: 65%;
+      margin-left: 20%;
+    }
+
+    .btn-submit {
+      margin-left: 30%;
+      @apply mt-3 mb-4 py-2 text-white rounded-lg w-2/5;
+
+      @screen md {
+        margin-left: 38%;
+        @apply w-1/4;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "layouts.scss";
+@import "scrollbar.scss";
+div.images {
+  .thumbnail {
+    @apply mx-auto mb-3;
+  }
+  .gallery {
+    @apply grid grid-flow-col gap-3 max-w-full mx-auto overflow-x-scroll scrollbar;
+  }
+}

@@ -1,0 +1,10 @@
+<div [formGroup]="form" class="form-container">
+  <div class="control-group">
+    <label for="email">Email Address</label>
+    <input type="email" formControlName="email" name="email" class="form-control" placeholder="Enter phone number or email" />
+  </div>
+  <ng-container *ngIf="emailInvalid">
+    <app-validation-message *ngIf="email.errors?.required" validator="required"></app-validation-message>
+    <app-validation-message *ngIf="email.errors?.email" validator="email"></app-validation-message>
+  </ng-container>
+</div>

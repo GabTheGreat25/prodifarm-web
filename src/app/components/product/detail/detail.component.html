@@ -1,0 +1,54 @@
+<main class="detail-page">
+  <section class="main-content">
+    <section class="product-details">
+      <div class="product-info">
+        <app-gallery [images]="product?.images ?? []"></app-gallery>
+        <div class="product-data">
+          <div class="heading">
+            <h1 class="font-bold text-2xl mb-4">{{ product?.name }}</h1>
+            <span class="rating">
+              <app-rating [rating]="product?.ratings ?? 0" class="text-3xl"></app-rating>
+              ({{ product?.ratings }})
+            </span>
+            <h1 class="price">
+              {{ selectedSKU?.price | currency: "PHP" }}
+            </h1>
+          </div>
+          <div class="description">
+            <h1 class="font-medium">Product Description</h1>
+            <p>{{ product?.description }}</p>
+          </div>
+          <div class="sku-collection">
+            <h1>
+              {{ selectedSKU?.name }}
+            </h1>
+            <ng-container *ngFor="let sku of product?.skus; let i = index">
+              <img
+                [lazyBgImage]="sku.thumbnail"
+                alt="sku?.name"
+                class="sku-item"
+                [ngClass]="{ selected: i === selectedSKUIndex }"
+                (click)="selectSKU(i)"
+              />
+            </ng-container>
+          </div>
+          <div class="quantity">
+            <h1 class="font-medium">Quantity</h1>
+            <app-quantity-control [limit]="selectedSKU?.quantity ?? 1" [count]="purchaseCount" (qtyChange)="handleCount($event)">
+            </app-quantity-control>
+            <span>{{ selectedSKU?.quantity }} available</span>
+          </div>
+          <div class="button-group">
+            <button class="cart-btn" (click)="addToCart(selectedSKU)" *ngIf="!isCartItemExists">Add to Cart</button>
+            <button class="cart-btn" (click)="updateCartItemQty(selectedSKU)" *ngIf="isCartItemExists">Update Cart</button>
+            <button class="checkout-btn" (click)="checkout(selectedSKU)">
+              {{ (selectedSKU?.price ?? 1) * purchaseCount | currency: "PHP" }} - Checkout ({{ purchaseCount }})
+            </button>
+          </div>
+        </div>
+      </div>
+      <app-seller [user]="user"></app-seller>
+    </section>
+    <app-top-pick [topProducts]="topProducts"></app-top-pick>
+  </section>
+</main>

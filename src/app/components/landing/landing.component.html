@@ -1,0 +1,42 @@
+<section class="landing-page">
+  <app-carousel></app-carousel>
+  <!-- BADGES -->
+  <section class="section-badge">
+    <div *ngFor="let badge of badges" class="badge">
+      <app-icon [name]="badge.icon"></app-icon>
+      <!-- <i [ngClass]="badge.icon"></i> -->
+      <p class="font-bold text-xl">{{ badge.text }}</p>
+    </div>
+  </section>
+
+  <!-- TOP PRODUCTS -->
+  <app-feature-product featuring="Top Products" class="mx-auto width-90 mb-5">
+    <app-product-list product-content [products]="topProducts"></app-product-list>
+  </app-feature-product>
+
+  <!-- CATEGORIES -->
+  <app-browse-categories></app-browse-categories>
+
+  <!-- NEW PRODUCTS -->
+  <app-feature-product featuring="New Products" class="mx-auto width-90 mb-5">
+    <app-product-list product-content [products]="newProducts"></app-product-list>
+  </app-feature-product>
+
+  <section class="registerBanner" [lazyBgImage]="promdiGrayBg" [isBg]="true">
+    <div class="content">
+      <img class="registerImage" [lazyBgImage]="registerSection.image" alt="PromdiFarm Mobile App" />
+      <div class="banner-text">
+        <h1 class="banner-heading">
+          {{ registerSection.top }}
+          <br />
+          {{ registerSection.bottom }}
+        </h1>
+        <div class="device-badges">
+          <ng-container *ngFor="let device of registerSection.devices">
+            <img [lazyBgImage]="device.name" [alt]="device.alt" />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

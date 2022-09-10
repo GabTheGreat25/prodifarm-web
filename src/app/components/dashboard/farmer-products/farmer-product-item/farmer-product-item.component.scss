@@ -1,0 +1,20 @@
+div.farmer-product-item {
+  @apply grid grid-flow-col gap-3 items-center auto-cols-fr;
+  .thumbnail-xs {
+    margin: 0 auto 0 0 !important;
+  }
+  .btn-group {
+    .warning {
+      @apply text-yellow-400;
+      &:hover {
+        @apply bg-yellow-400 text-white;
+      }
+    }
+    .danger {
+      @apply text-red-600;
+      &:hover {
+        @apply bg-red-600 text-white;
+      }
+    }
+  }
+}

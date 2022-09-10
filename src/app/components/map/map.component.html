@@ -1,0 +1,21 @@
+<google-map
+  height="100%"
+  width="100%"
+  [center]="initialCenter"
+  (mapClick)="setMarker($event)"
+  [options]="options"
+  *ngIf="mapLoaded | async"
+>
+  <map-marker #locationMarker [position]="selectedLocation"> </map-marker>
+  <map-marker
+    #outletMarker="mapMarker"
+    *ngFor="let promdiOutlet of _promdiOutlets"
+    [position]="getCoordinates(promdiOutlet)"
+    [options]="outletMarkerOptions"
+    (mapClick)="showMapInfo(outletMarker, promdiOutlet)"
+  >
+  </map-marker>
+  <map-info-window>
+    <span>{{ outletInfo.title }}</span>
+  </map-info-window>
+</google-map>

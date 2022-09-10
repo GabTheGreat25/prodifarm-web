@@ -1,0 +1,9 @@
+<section class="top-picks">
+  <h1 class="font-semibold mb-3">Top Picks from Farmer</h1>
+  <div class="top-products">
+    <div class="product-link" *ngFor="let product of topProducts" [routerLink]="['/products/', product._id]" role="link">
+      <img *ngIf="product.images.length > 0" class="thumbnail-xs" [lazyBgImage]="product.images[0]" [alt]="product.name" />
+      <h1 class="font-bold">{{ product.name }}</h1>
+    </div>
+  </div>
+</section>

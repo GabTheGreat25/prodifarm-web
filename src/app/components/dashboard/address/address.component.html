@@ -1,0 +1,37 @@
+<section class="address-container">
+  <h1 class="text-neutral-primary font-bold text-xl">Shipping Address</h1>
+  <p class="text-neutral-200">Manage and protect your account</p>
+  <div class="grid grid-flow-col justify-start gap-3 items-center pb-3 border-b-2 border-neutral-100"></div>
+  <div *ngIf="isDisplay">
+    <div class="pt-6">
+      <p class="text-neutral-200 pl-16">
+        Full Name
+        <span class="text-neutral-primary pl-5">{{ user?.firstName }} {{ user?.lastName }}</span>
+        <button class="text-primary pl-5">Default</button>
+      </p>
+    </div>
+    <div class="info">
+      <p class="text-neutral-200 pl-16">
+        Phone
+        <span class="text-neutral-primary pl-11">{{ user?.phoneNumber }}</span>
+      </p>
+      <button class="edit-btn" (click)="toggleDisplay()"><app-icon name="pencil"></app-icon></button>
+      <button class="delete-btn"><app-icon name="trash"></app-icon></button>
+    </div>
+    <div class="info">
+      <p class="text-neutral-200 pl-16">
+        Address
+        <span class="text-neutral-primary pl-8">{{ user?.addresses }}</span>
+      </p>
+      <span class="location-icon"><app-icon name="location"></app-icon></span>
+    </div>
+  </div>
+  <div *ngIf="!isDisplay" class="phone-info">
+    <h1 class="text-neutral-primary font-bold text-lg pb-4">Set phone number</h1>
+    <button class="close-btn" (click)="toggleDisplay()"><app-icon name="closeCircle"></app-icon></button>
+    <app-phone-form formControlName="phone"></app-phone-form>
+    <div class="grid justify-end items-end">
+      <button class="bg-primary text-white rounded-lg px-6 py-2 mt-4">Confirm</button>
+    </div>
+  </div>
+</section>

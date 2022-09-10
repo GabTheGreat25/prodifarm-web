@@ -1,0 +1,11 @@
+section.farmer-signup {
+  @apply bg-cover bg-no-repeat grid items-center;
+  min-height: 100vh;
+  @apply py-8 px-4;
+  .close-btn {
+    @apply text-red-600;
+  }
+  .title {
+    @apply font-bold text-lg text-primary;
+  }
+}

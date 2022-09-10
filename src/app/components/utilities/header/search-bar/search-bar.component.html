@@ -1,0 +1,8 @@
+<form class="searchForm" [formGroup]="searchForm">
+  <div class="form-group">
+    <button type="submit" class="search-button">
+      <app-icon name="search"></app-icon>
+    </button>
+    <input type="text" class="searchBar" formControlName="search" placeholder="Search" (keyup.enter)="onSubmit()" />
+  </div>
+</form>

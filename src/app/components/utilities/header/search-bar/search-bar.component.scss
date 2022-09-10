@@ -1,0 +1,17 @@
+:host {
+  align-self: center;
+}
+
+.searchForm {
+  .form-group {
+    @apply relative;
+    .search-button {
+      @apply absolute inset-y-0 left-0 pl-3 grid items-center;
+    }
+    .searchBar {
+      @apply outline-none rounded-lg p-2 pl-8 ring-2 ring-neutral-primary ring-opacity-60 focus:ring-4 focus:ring-neutral-secondary focus:ring-opacity-40;
+      background-color: #e3e3e3;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div id="header_slider" class="vh-80 relative overflow-hidden">
+  <!-- <div [ngClass]="['slide_item' + (i + 1), item.class]" *ngFor="let item of slides; let i = index"> -->
+  <div [lazyBgImage]="item.img" [isBg]="true" [ngClass]="['slide_item' + (i + 1), item.class]" *ngFor="let item of slides; let i = index">
+    <div class="item-container md:px-10 lg:px-20">
+      <h1 [class]="item.title.color">{{ item.title.name }}</h1>
+      <p class="item{{ i + 1 }}-sub">{{ item.sub }}</p>
+      <button [class]="item.button.color" (click)="goto(item.button.url)">{{ item.button.name }}</button>
+    </div>
+  </div>
+
+  <div class="arrow-left">
+    <button (click)="nextSlide(false)" class="arrow-btn p-2 rounded-md">
+      <span class="text-yellow-300">&#x276E;</span>
+    </button>
+  </div>
+  <div class="arrow-right">
+    <button (click)="nextSlide()" class="arrow-btn p-2 rounded-md">
+      <span class="text-yellow-300">&#x276F;</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="cart-item">
+  <div class="header">
+    <div class="check-group">
+      <input type="checkbox" name="selected" id="selected" [formControl]="selected" (change)="toggleSelect()" />
+      <label for="selected">
+        {{ _cartItem?.sku?.product?.user?.firstName }}
+        {{ _cartItem?.sku?.product?.user?.lastName }}
+      </label>
+    </div>
+    <button class="delete-btn" (click)="deleteItem(_cartItem)">
+      <app-icon name="closeCircle"></app-icon>
+    </button>
+  </div>
+  <div class="content">
+    <div class="product-detail">
+      <img [lazyBgImage]="product.thumbnail" alt="product.name" class="thumbnail-xs rounded-sm" />
+      <div class="text-group">
+        <h1 class="text-black font-medium">{{ product.name }}</h1>
+        <p>
+          {{ _cartItem?.sku?.product?.description | slice: 0:100 }}
+          <span *ngIf="_cartItem.sku.product.description.length > 100">...</span>
+        </p>
+      </div>
+    </div>
+    <div class="cart-control">
+      <h1 class="text-primary">{{ totalPrice | currency: "PHP" }}</h1>
+      <app-quantity-control
+        [limit]="_cartItem.sku.quantity"
+        [count]="_cartItem.quantity"
+        (qtyChange)="handleCartCount($event)"
+      ></app-quantity-control>
+    </div>
+  </div>
+</div>

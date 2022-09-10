@@ -1,0 +1,21 @@
+div.cart-item {
+  @apply bg-white rounded-lg p-6 mb-4;
+  .header {
+    @apply pb-2 border-b-2 border-neutral-500 mb-3 grid grid-flow-col items-center justify-between;
+    .delete-btn {
+      @apply py-1 px-2 rounded-md text-red-600;
+      &:hover {
+        @apply bg-red-600 text-white;
+      }
+    }
+  }
+  .content {
+    @apply grid grid-flow-col justify-between gap-6;
+    .product-detail {
+      @apply grid grid-flow-col justify-start gap-3;
+    }
+    .cart-control {
+      @apply grid grid-flow-col justify-between gap-4;
+    }
+  }
+}

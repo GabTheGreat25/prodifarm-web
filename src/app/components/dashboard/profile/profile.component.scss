@@ -1,0 +1,22 @@
+section.profile-container {
+  @apply relative bg-white rounded-xl mx-auto px-8 py-4 h-full;
+
+  .vertical-line {
+    @apply w-0.5 h-4/6 bg-neutral-100;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+
+  .btn-save {
+    margin-left: 19rem;
+    @apply bg-primary text-white rounded-lg px-6 py-2 mt-2 w-1/4;
+  }
+
+  .avatar {
+    @apply mb-12 pl-9;
+    .avatar-item {
+      width: 11rem;
+    }
+  }
+}

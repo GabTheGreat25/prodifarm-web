@@ -1,0 +1,28 @@
+main.cartPage {
+  @apply bg-neutral-50 text-neutral-500;
+  min-height: 100vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  .content {
+    @apply grid gap-4 mx-auto;
+    width: 90%;
+    @screen lg {
+      @apply grid grid-flow-col;
+      grid-auto-columns: 1fr 0.5fr;
+    }
+    .cartContainer {
+      .batchControl {
+        @apply bg-white rounded-lg py-4 px-6 grid grid-flow-col justify-between items-center mb-4;
+        .check-group {
+          @apply inline-grid grid-flow-col gap-3 items-center;
+        }
+        .delete-btn {
+          @apply py-1 px-2 rounded-md text-red-600;
+          &:hover {
+            @apply bg-red-600 text-white;
+          }
+        }
+      }
+    }
+  }
+}

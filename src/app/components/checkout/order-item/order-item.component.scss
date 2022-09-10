@@ -1,0 +1,10 @@
+div.order-item {
+  @apply grid grid-flow-col gap-3  items-center;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  .product-title {
+    @apply grid grid-flow-col gap-3 justify-start items-center;
+  }
+  .order-control {
+    @apply grid grid-flow-col gap-3 items-center;
+  }
+}

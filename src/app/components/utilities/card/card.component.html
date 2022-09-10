@@ -1,0 +1,26 @@
+<div class="card" [ngClass]="{ 'mx-auto': mxAuto }" (click)="onClick($event)">
+  <div class="card-content" [ngStyle]="{ padding: padding }">
+    <ng-content select="[image]"></ng-content>
+    <div class="like">
+      <ng-content select="[like]"></ng-content>
+    </div>
+    <div class="badge">
+      <ng-content select="[badge]"></ng-content>
+    </div>
+    <div class="header-content">
+      <ng-content select="[title]"></ng-content>
+      <ng-content select="[content]"></ng-content>
+      <div class="card-submit">
+        <ng-content select="[submit]"></ng-content>
+      </div>
+      <div class="star-rating">
+        <ng-content select="[stars]"></ng-content>
+        <ng-content select="[rating]"></ng-content>
+      </div>
+      <div class="price-section">
+        <ng-content select="[price]"></ng-content>
+        <ng-content select="[bayong]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

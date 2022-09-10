@@ -1,0 +1,10 @@
+section.signup-page {
+  @apply py-6 px-4;
+  min-height: 100vh;
+  .close-btn {
+    @apply text-red-600;
+  }
+  .title {
+    @apply font-bold text-2xl text-primary text-left;
+  }
+}

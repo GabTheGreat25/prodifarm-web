@@ -1,0 +1,16 @@
+.sign-in {
+  @apply no-underline border-b-2 border-white text-white font-bold;
+}
+
+.section {
+  min-height: 100vh;
+  @apply w-full bg-no-repeat bg-cover bg-gray-100 text-white m-0 h-full flex justify-center items-center py-4;
+
+  @screen xs {
+    @apply py-16;
+  }
+
+  .content {
+    @apply flex flex-col items-center justify-center px-6 mt-1;
+  }
+}

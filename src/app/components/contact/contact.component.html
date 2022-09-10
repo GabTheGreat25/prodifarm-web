@@ -1,0 +1,56 @@
+<section id="banner" [lazyBgImage]="promdiBackground" [isBg]="true">
+  <div class="bannerContent">
+    <h1 class="bannerTitle">Get in touch</h1>
+    <p class="bannerSub">
+      If you have any questions, queries or comments, please feel free to get in touch and our team will be delighted to help you.
+    </p>
+  </div>
+  <app-form-card>
+    <button close-btn class="close-btn" routerLink="/">
+      <app-icon name="closeCircle"></app-icon>
+    </button>
+    <form form [formGroup]="form" class="form-container" (submit)="contact(form)">
+      <div [formGroup]="form" class="form-container">
+        <p class="info">Let's Talk</p>
+        <div class="form-group">
+          <div class="control-group">
+            <label for="first_name">First Name</label>
+            <input type="text" formControlName="first_name" class="form-control" placeholder="First Name" />
+          </div>
+          <div class="control-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" formControlName="last_name" class="form-control" placeholder="Last Name" />
+          </div>
+        </div>
+        <ng-container *ngIf="name_invalid">
+          <app-validation-message *ngIf="name_required" validator="name-required"></app-validation-message>
+        </ng-container>
+        <div class="control-group">
+          <label for="email">Email Address</label>
+          <input class="form-control" id="email" type="email" placeholder="Email Address" formControlName="email" />
+        </div>
+        <ng-container *ngIf="email_invalid">
+          <app-validation-message *ngIf="email.errors?.required" validator="required"></app-validation-message>
+          <app-validation-message *ngIf="email.errors?.email" validator="email"></app-validation-message>
+        </ng-container>
+        <div class="control-group">
+          <label for="message">Message</label>
+          <textarea
+            cols="50"
+            rows="4"
+            class="form-control"
+            id="message"
+            type="message"
+            placeholder="Message Here"
+            formControlName="message"
+          ></textarea>
+          <ng-container *ngIf="message_invalid">
+            <app-validation-message *ngIf="message_required" validator="required"></app-validation-message>
+          </ng-container>
+          <p class="text-primary text-sm pt-1">Atleast 50 characters</p>
+        </div>
+        <button class="btn-primaryBg" type="submit" [disabled]="form.invalid">Contact Us</button>
+      </div>
+    </form>
+  </app-form-card>
+</section>

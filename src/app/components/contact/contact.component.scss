@@ -1,0 +1,50 @@
+@import "variables.scss";
+
+#banner {
+  margin: auto;
+  padding: 10% 5%;
+  min-height: 100vh;
+  @apply grid bg-no-repeat bg-cover justify-center items-center;
+  @screen md {
+    padding: 10% 0;
+  }
+  @screen lg {
+    @apply grid-cols-2;
+    justify-content: space-between;
+    padding: 4%;
+  }
+
+  .info {
+    @apply text-primary text-2xl font-bold text-left;
+  }
+
+  .close-btn {
+    @apply text-red-600;
+  }
+
+  .bannerContent {
+    @apply px-10;
+    .bannerTitle {
+      display: none;
+      @screen md {
+        @apply text-5xl font-bold mb-3 text-center text-white;
+      }
+      @screen lg {
+        display: block;
+        @apply text-6xl font-bold text-left text-white;
+      }
+    }
+
+    .bannerSub {
+      display: none;
+      @apply pb-3;
+      @screen md {
+        @apply text-lg text-center text-white;
+      }
+      @screen lg {
+        display: block;
+        @apply text-xl text-left text-white;
+      }
+    }
+  }
+}

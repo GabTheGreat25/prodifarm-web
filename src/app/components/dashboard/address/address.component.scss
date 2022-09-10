@@ -1,0 +1,35 @@
+section.address-container {
+  @apply bg-white rounded-xl mx-auto px-8 py-4 h-full;
+
+  .info {
+    @apply relative pt-4;
+
+    .location-icon {
+      @apply absolute;
+      left: 3%;
+      top: 1rem;
+    }
+
+    .edit-btn {
+      @apply absolute;
+      left: 95%;
+      top: 1rem;
+    }
+
+    .delete-btn {
+      @apply absolute;
+      left: 98%;
+      top: 1rem;
+    }
+  }
+
+  .phone-info {
+    @apply relative w-3/5 pt-4;
+
+    .close-btn {
+      @apply absolute text-red-600;
+      left: 95%;
+      top: 1.25rem;
+    }
+  }
+}

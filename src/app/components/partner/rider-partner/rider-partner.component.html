@@ -1,0 +1,36 @@
+<section class="section" lazyBgImage="../../../assets/images/svg/promdifarm-green-bg.svg" [isBg]="true">
+  <div class="content">
+    <div class="bg-white px-6 py-8 rounded shadow-md w-full">
+      <h1 class="mb-8 text-3xl text-center text-neutral-secondary font-medium">Sign up</h1>
+      <form [formGroup]="form">
+        <input type="text" class="input-green" name="fullname" placeholder="Full Name" />
+        <input type="text" class="input-green" name="phone" placeholder="Phone Number" />
+        <input type="email" class="input-green" name="email" placeholder="Email Address" />
+        <input type="text" class="input-green" name="address" placeholder="Street/Block/Purok" />
+        <input type="text" class="input-green" name="barangay" placeholder="Barangay" />
+        <input type="text" class="input-green" name="city" placeholder="City" />
+        <input type="text" class="input-green" name="province" placeholder="Province" />
+
+        <select formControlName="products" class="form-control input-green text-neutral-secondary" (change)="onChange($event)">
+          <option>Choose a vehicle type</option>
+          <option *ngFor="let product of vehicle">{{ product }}</option>
+        </select>
+      </form>
+
+      <button class="w-full text-center py-3 rounded bg-primary focus:outline-none my-1" [disabled]="!form.valid" (click)="submit()">
+        Create Account
+      </button>
+
+      <div class="text-center text-sm text-neutral-secondary mt-4">
+        By signing up, you agree to the
+        <a class="border-b border-neutral-secondary text-neutral-secondary" routerLink="/terms-of-service"> Terms of Service </a> and
+        <a class="border-b border-neutral-secondary text-neutral-secondary" routerLink="/privacy-policies"> Privacy Policy </a>
+      </div>
+    </div>
+
+    <div class="text-neutral-secondary mt-6">
+      Already have an account?
+      <a class="sign-in" routerLink="/login"> Sign in </a>.
+    </div>
+  </div>
+</section>

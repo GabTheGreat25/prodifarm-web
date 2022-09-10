@@ -1,0 +1,58 @@
+@import "layouts.scss";
+
+section.landing-page {
+  padding-top: 7rem;
+  .section-badge {
+    @apply grid gap-3 py-4 width-90 mx-auto;
+
+    @screen md {
+      @apply grid grid-cols-2 justify-center;
+    }
+
+    @screen lg {
+      @apply grid grid-flow-col grid-cols-none justify-center;
+    }
+
+    .badge {
+      @apply inline-grid gap-3 grid-flow-col items-center rounded-md bg-gray-300 max-w-xs mx-auto p-5;
+    }
+  }
+
+  .registerBanner {
+    @apply mx-auto bg-cover bg-no-repeat grid gap-4 h-auto pt-10;
+    @screen md {
+      @apply vh-60 pt-0;
+    }
+    .content {
+      @apply grid width-90 mx-auto;
+      @screen md {
+        @apply grid-flow-col;
+      }
+      .registerImage {
+        @apply self-end h-80 order-2;
+        @screen md {
+          @apply order-1;
+        }
+      }
+      .banner-text {
+        @apply self-center order-1 justify-center text-center;
+        @screen md {
+          @apply order-2 justify-start text-left;
+        }
+        .banner-heading {
+          @apply text-4xl text-neutral-primary;
+          font-weight: 500;
+        }
+        .device-badges {
+          @apply inline-grid grid-cols-2 items-center justify-center;
+          @screen md {
+            @apply inline-grid grid-cols-2 justify-start;
+          }
+          img {
+            min-height: 5vh;
+          }
+        }
+      }
+    }
+  }
+}

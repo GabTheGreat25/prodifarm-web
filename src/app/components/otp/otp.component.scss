@@ -1,0 +1,80 @@
+section.otp {
+  min-height: 100vh;
+  display: grid;
+  @apply px-8 py-8;
+  @apply bg-no-repeat bg-cover;
+
+  @apply items-center;
+
+  .btn-arrow-otp {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    z-index: 1;
+  }
+  .arrow {
+    width: 2rem;
+    height: 4rem;
+    @screen md {
+      @apply pt-2;
+    }
+    @screen lg {
+      @apply pt-2;
+    }
+  }
+  .otp-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    @apply grid grid-flow-row max-w-7xl bg-white rounded-xl mx-auto text-center py-8 px-4 gap-3;
+
+    @screen md {
+      @apply p-8;
+    }
+    @screen lg {
+      @apply p-12;
+      width: 60rem;
+    }
+
+    .otp-header {
+      @apply text-primary font-bold text-2xl;
+
+      @screen md {
+        @apply text-2xl;
+      }
+      @screen lg {
+        @apply text-3xl;
+      }
+    }
+
+    .otp-verify {
+      @apply text-neutral-primary;
+      @screen lg {
+        @apply text-lg;
+      }
+    }
+
+    .otp-sub {
+      @apply text-neutral-primary;
+      text-align: center;
+    }
+
+    .onetimeimg {
+      height: 22rem;
+      width: 22rem;
+      @apply mx-auto;
+      @screen md {
+        @apply h-80;
+        @apply w-80;
+      }
+      @screen lg {
+        @apply h-96;
+        @apply w-96;
+      }
+    }
+
+    .btn-submit {
+      @apply py-2 mx-auto text-white rounded-xl w-2/5 bg-secondary;
+    }
+  }
+}

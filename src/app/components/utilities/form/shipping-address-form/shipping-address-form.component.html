@@ -1,0 +1,31 @@
+<div class="form-container" [formGroup]="form">
+  <label>Address</label>
+  <input type="text" class="form-control" placeholder="Address" formControlName="address" />
+  <ng-container *ngIf="addressInvalid">
+    <app-validation-message *ngIf="address.errors?.required" validator="required"></app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="City" formControlName="city" />
+    <input type="text" class="form-control" placeholder="Province" formControlName="province" />
+  </div>
+  <ng-container *ngIf="cityProvinceInvalid">
+    <app-validation-message *ngIf="cityProvinceErrors?.required" validator="cityProvince-required"> </app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <input type="number" name="zip" id="zip" class="form-control" placeholder="zip code" formControlName="zip" />
+    <fieldset class="grid grid-flow-col items-center justify-between" aria-label="set shipping address as">
+      <div class="check-group">
+        <input type="checkbox" name="makeDefault" id="makeDefault" formControlName="makeDefault" />
+        <label for="defaultAddress"><i>Make default address</i></label>
+      </div>
+      <div class="check-group">
+        <input type="checkbox" name="asBilling" id="asBilling" formControlName="asBilling" />
+        <label for="asBilling"><i>As billing address</i></label>
+      </div>
+    </fieldset>
+  </div>
+  <ng-container *ngIf="zipInvalid">
+    <app-validation-message *ngIf="zip.errors?.required" validator="required"></app-validation-message>
+    <app-validation-message *ngIf="zipInvalidError" validator="zip"></app-validation-message>
+  </ng-container>
+</div>

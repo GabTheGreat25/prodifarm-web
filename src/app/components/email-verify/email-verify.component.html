@@ -1,0 +1,15 @@
+<section class="email-verify" [lazyBgImage]="promdiGreenBg" [isBg]="true">
+  <div class="email-container">
+    <button class="btn-back" routerLink="/">
+      <app-icon class="email-item" name="arrowLeft"> </app-icon>
+    </button>
+    <h1 class="email-title">Verify your email</h1>
+    <p class="email-info">You will need to verify your email to complete registration</p>
+    <img image [lazyBgImage]="emailVerification" alt="Email Verification" class="emailImg" />
+    <p class="email-details">
+      An email has been sent to sangdon16@promdifarm.com with a link to verify your account.<br />
+      If you have not received the email after a few minutes, please check your spam folder.
+    </p>
+    <button class="btn-submit bg-secondary">RESEND EMAIL</button>
+  </div>
+</section>

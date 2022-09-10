@@ -1,0 +1,103 @@
+<footer class="footer">
+  <div class="info">
+    <div class="title">Important Information</div>
+    <ul class="list">
+      <li class="py-1" *ngFor="let item of informations">
+        <a [routerLink]="item.link">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="resources">
+    <div class="title">Resources</div>
+    <ul class="list">
+      <li class="py-1" *ngFor="let item of resources">
+        <a [routerLink]="item.link">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="download">
+    <div class="title">Download</div>
+    <ul class="list">
+      <li class="py-1 uppercase">
+        <a routerLink="/">IOS (Apple)</a>
+      </li>
+      <li class="py-1 uppercase">
+        <a routerLink="/">Android (Google)</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="contact-us">
+    <div class="title">Contact Us</div>
+    <ul class="list">
+      <li class="item" *ngFor="let item of contacts">
+        <svg *ngIf="item.svg === 'phone'" width="13" height="22" viewBox="0 0 13 22" fill="none">
+          <path
+            d="M10.5 0H2.5C1.12 0 0 1.12 0 2.5V19.5C0 20.88 1.12 22 2.5 22H10.5C11.88 22 13 20.88 13 19.5V2.5C13 1.12 11.88 0 10.5 0ZM6.5 21C5.67 21 5 20.33 5 19.5C5 18.67 5.67 18 6.5 18C7.33 18 8 18.67 8 19.5C8 20.33 7.33 21 6.5 21ZM11 17H2V3H11V17Z"
+            fill="white"
+            fill-opacity="0.54"
+          />
+        </svg>
+        <svg *ngIf="item.svg === 'email'" width="20" height="16" viewBox="0 0 20 16" fill="none">
+          <path
+            d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 14H2V4L10 9L18 4V14ZM10 7L2 2H18L10 7Z"
+            fill="white"
+            fill-opacity="0.54"
+          />
+        </svg>
+        <a [href]="item.link" class="link">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="connect">
+    <div class="title">Connect</div>
+    <ul class="list">
+      <li *ngFor="let item of socials">
+        <a [href]="item.link" target="_blank" class="item" rel="noopener">
+          <svg *ngIf="item.svg === 'facebook'" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M22.6016 0.0996094H1.40156C0.701562 0.0996094 0.101562 0.699609 0.101562 1.39961V22.4996C0.101562 23.1996 0.701562 23.7996 1.40156 23.7996H12.8016V14.5996H9.70156V10.9996H12.8016V8.49961C12.8016 5.39961 14.7016 3.79961 17.4016 3.79961C18.7016 3.79961 19.8016 3.89961 20.2016 3.89961V7.09961H18.3016C16.8016 7.09961 16.5016 7.79961 16.5016 8.79961V11.0996H20.1016L19.6016 14.6996H16.5016V23.8996H22.5016C23.2016 23.8996 23.8016 23.2996 23.8016 22.5996V1.39961C23.9016 0.699609 23.3016 0.0996094 22.6016 0.0996094Z"
+              fill="white"
+              fill-opacity="0.54"
+            />
+          </svg>
+          <svg *ngIf="item.svg === 'twitter'" width="24" height="20" viewBox="0 0 24 20" fill="none">
+            <path
+              d="M24 2.5585C23.1075 2.95 22.1565 3.2095 21.165 3.3355C22.185 2.7265 22.9635 1.7695 23.3295 0.616C22.3785 1.183 21.3285 1.5835 20.2095 1.807C19.3065 0.8455 18.0195 0.25 16.6155 0.25C13.8915 0.25 11.6985 2.461 11.6985 5.1715C11.6985 5.5615 11.7315 5.9365 11.8125 6.2935C7.722 6.094 4.1025 4.1335 1.671 1.147C1.2465 1.8835 0.9975 2.7265 0.9975 3.634C0.9975 5.338 1.875 6.8485 3.183 7.723C2.3925 7.708 1.617 7.4785 0.96 7.117C0.96 7.132 0.96 7.1515 0.96 7.171C0.96 9.562 2.6655 11.548 4.902 12.0055C4.5015 12.115 4.065 12.1675 3.612 12.1675C3.297 12.1675 2.979 12.1495 2.6805 12.0835C3.318 14.032 5.127 15.4645 7.278 15.511C5.604 16.8205 3.4785 17.6095 1.1775 17.6095C0.774 17.6095 0.387 17.5915 0 17.542C2.1795 18.9475 4.7625 19.75 7.548 19.75C16.602 19.75 21.552 12.25 21.552 5.749C21.552 5.5315 21.5445 5.3215 21.534 5.113C22.5105 4.42 23.331 3.5545 24 2.5585Z"
+              fill="white"
+              fill-opacity="0.54"
+            />
+          </svg>
+          <svg *ngIf="item.svg === 'instagram'" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M21.5992 16.3992C21.5992 19.2992 19.2992 21.5992 16.3992 21.5992H7.59922C4.69922 21.5992 2.39922 19.2992 2.39922 16.3992V7.59922C2.39922 4.69922 4.69922 2.39922 7.59922 2.39922H16.4992C19.3992 2.39922 21.6992 4.69922 21.6992 7.59922V16.3992H21.5992ZM16.3992 0.199219H7.59922C3.49922 0.199219 0.199219 3.49922 0.199219 7.59922V16.4992C0.199219 20.5992 3.49922 23.8992 7.59922 23.8992H16.4992C20.5992 23.8992 23.8992 20.5992 23.8992 16.4992V7.59922C23.7992 3.49922 20.4992 0.199219 16.3992 0.199219Z"
+              fill="white"
+              fill-opacity="0.54"
+            />
+            <path
+              d="M11.9977 15.6996C9.99766 15.6996 8.29766 13.9996 8.29766 11.9996C8.29766 9.99961 9.99766 8.29961 11.9977 8.29961C13.9977 8.29961 15.6977 9.99961 15.6977 11.9996C15.6977 13.9996 13.9977 15.6996 11.9977 15.6996ZM11.9977 6.09961C8.69766 6.09961 6.09766 8.69961 6.09766 11.9996C6.09766 15.2996 8.69766 17.8996 11.9977 17.8996C15.2977 17.8996 17.8977 15.2996 17.8977 11.9996C17.8977 8.69961 15.2977 6.09961 11.9977 6.09961Z"
+              fill="white"
+              fill-opacity="0.54"
+            />
+            <path
+              d="M18.3977 4.89844C18.8977 4.89844 19.1977 5.29844 19.1977 5.69844C19.1977 6.09844 18.7977 6.49844 18.3977 6.49844C17.8977 6.49844 17.5977 6.09844 17.5977 5.69844C17.5977 5.29844 17.8977 4.89844 18.3977 4.89844Z"
+              fill="white"
+              fill-opacity="0.54"
+            />
+          </svg>
+          <span class="label"> {{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="trademark">
+    <a class="promdi" routerLink="/" (click)="scrollTop()">
+      <img [lazyBgImage]="promdiLogo" alt="logo" class="logo" width="147" height="40" />
+    </a>
+    <div class="copyright">© 2021 promdifarm</div>
+  </div>
+</footer>

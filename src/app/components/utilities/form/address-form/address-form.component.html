@@ -1,0 +1,76 @@
+<div class="form-container" [formGroup]="form">
+  <div class="form-group">
+    <div class="control-group">
+      <label for="name">Name</label>
+      <input type="text" placeholder="ex. My Crib" formControlName="name" class="form-control" />
+    </div>
+    <div class="control-group">
+      <label for="name">Type</label>
+      <select name="type" class="form-control" (change)="onSelectChange($event)">
+        <option [ngValue]="type" *ngFor="let type of addressTypes">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <ng-container *ngIf="name.invalid && name.touched">
+    <app-validation-message *ngIf="name.errors?.required" validator="required"></app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <div class="control-group">
+      <label for="unit">Unit/Lot Number</label>
+      <input type="text" placeholder="Blk 1 Lot 1" formControlName="unit" class="form-control" />
+    </div>
+    <div class="control-group">
+      <label for="street">Street</label>
+      <input type="text" placeholder="ex. Di Makita Ave" formControlName="street" class="form-control" />
+    </div>
+  </div>
+  <ng-container *ngIf="street.invalid && street.touched">
+    <app-validation-message *ngIf="street.errors?.required" validator="required"></app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <div class="control-group">
+      <label for="barangay">Barangay</label>
+      <input type="text" placeholder="ex. San Libutan" formControlName="barangay" class="form-control" />
+    </div>
+    <div class="control-group">
+      <label for="district">District</label>
+      <input type="text" placeholder="District" formControlName="district" class="form-control" />
+    </div>
+  </div>
+  <ng-container *ngIf="barangayDistrictInvalid">
+    <app-validation-message *ngIf="barangayDistrictErrors" validator="barangayDistrict-required"></app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <div class="control-group">
+      <label for="city">City</label>
+      <input type="text" placeholder="ex. Imus" formControlName="city" class="form-control" />
+    </div>
+    <div class="control-group">
+      <label for="province">Province</label>
+      <input type="text" placeholder="ex. Cavite" formControlName="province" class="form-control" />
+    </div>
+  </div>
+  <ng-container *ngIf="cityProvinceInvalid">
+    <app-validation-message *ngIf="cityProvinceErrors?.required" validator="cityProvince-required"></app-validation-message>
+  </ng-container>
+  <div class="form-group">
+    <div class="control-group">
+      <label for="country">Country</label>
+      <select name="country" class="form-control" disabled>
+        <option [ngValue]="country" *ngFor="let country of countries">
+          {{ country }}
+        </option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="zip">Zip</label>
+      <input type="number" placeholder="4102" formControlName="zip" class="form-control" />
+    </div>
+  </div>
+  <ng-container *ngIf="zip.invalid && zip.touched">
+    <app-validation-message *ngIf="zip.errors?.required" validator="required"></app-validation-message>
+    <app-validation-message *ngIf="zip.errors?.min || zip.errors?.max" validator="zip"></app-validation-message>
+  </ng-container>
+</div>

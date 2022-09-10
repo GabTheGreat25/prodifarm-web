@@ -1,0 +1,40 @@
+<div class="form-container">
+  <div class="control-group">
+    <div class="grid grid-cols-3">
+      <label for="Name" class="pl-16 mt-2">Name</label>
+      <input type="text" value="{{ user?.firstName }} {{ user?.lastName }}" class="form-control col-span-2" readonly />
+    </div>
+  </div>
+  <div>
+    <p class="pl-16">
+      Email
+      <span class="pl-11" *ngIf="user?.email"
+        >{{ user?.email }}
+        <button class="text-primary pl-5">Change</button>
+      </span>
+      <button class="pl-11 text-primary" *ngIf="!user?.email">Add</button>
+    </p>
+  </div>
+  <div>
+    <p>
+      Phone Number
+      <span class="pl-11" *ngIf="user?.phoneNumber"
+        >{{ user?.phoneNumber }}
+        <button class="text-primary pl-5">Change</button>
+      </span>
+      <button class="pl-11 text-primary" *ngIf="!user?.phoneNumber">Add</button>
+    </p>
+  </div>
+  <div>
+    <label class="pl-14 pt-2">Gender</label>
+    <span class="px-9">
+      <input type="checkbox" class="mx-2" />Male <input type="checkbox" class="mx-2" />Female <input type="checkbox" class="mx-2" />Other
+    </span>
+  </div>
+  <div class="control-group">
+    <div class="grid grid-cols-3 pb-2">
+      <label for="birthDate" class="pl-9 pt-2">Birth Date</label>
+      <input type="date" class="form-control col-span-2" formControlName="birthDate" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<section class="signup-page" [lazyBgImage]="promdiBg" [isBg]="true">
+  <app-form-card>
+    <button close-btn class="close-btn" routerLink="/">
+      <app-icon name="closeCircle"></app-icon>
+    </button>
+    <h1 title class="title">Sign Up</h1>
+    <form form [formGroup]="form" class="form-container" (submit)="signup(form)">
+      <app-profile-form formControlName="profile"></app-profile-form>
+      <app-email-form formControlName="email"></app-email-form>
+      <app-password-form formControlName="password"></app-password-form>
+      <button class="btn-primaryBg" [disabled]="form.invalid">Sign Up</button>
+    </form>
+    <span link class="mt-3">
+      Already a member?
+      <a class="text-primary font-semibold" routerLink="/login">Click here</a>
+      to login
+    </span>
+  </app-form-card>
+</section>

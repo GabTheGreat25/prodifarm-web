@@ -1,0 +1,5 @@
+<span [ngSwitch]="validator" class="text-red-400">
+  <ng-container *ngFor="let alert of alerts">
+    <ng-container *ngSwitchCase="alert.validator">{{ alert.message }}</ng-container>
+  </ng-container>
+</span>

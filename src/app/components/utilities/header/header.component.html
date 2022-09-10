@@ -1,0 +1,67 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- LOGO -->
+    <div class="nav-group">
+      <div id="nav-image" class="py-3 mr-3" routerLink="/">
+        <img [lazyBgImage]="logoBlack" alt="logo" class="logo" width="147" height="40" />
+      </div>
+      <div class="searchbar-wrapper">
+        <app-search-bar *ngIf="_showSearchBar" (handleSubmit)="search($event)"></app-search-bar>
+      </div>
+      <div class="nav-items" *ngIf="isProductPage">
+        <a class="nav-link" routerLink="/">Market</a>
+        <a class="nav-link" routerLink="/">Promdi</a>
+        <a class="nav-link" routerLink="/about">About</a>
+        <a class="nav-link" routerLink="/become-a-partner">Become a Partner</a>
+      </div>
+    </div>
+    <ng-container *ngIf="isAuthenticated">
+      <div class="nav-group buttons">
+        <!-- BASKET ICON -->
+        <a aria-label="shop" routerLink="/cart" class="basket">
+          <app-icon name="basket"></app-icon>
+          <span class="cart-counter">{{ cartItems }}</span>
+        </a>
+        <a aria-label="profile" routerLink="/dashboard">
+          <img [src]="avatar" alt="profile" *ngIf="user?.avatar" class="avatar" />
+          <app-icon name="personCircle" *ngIf="!user?.avatar" class="avatar"></app-icon>
+        </a>
+        <button aria-label="hamburger" class="hamburger" (click)="openDrawer()">
+          <app-icon name="hamburgerOff" *ngIf="!showDrawer"></app-icon>
+          <app-icon name="hamburgerOn" *ngIf="showDrawer"></app-icon>
+        </button>
+      </div>
+    </ng-container>
+    <!-- SECONDARY NAV -->
+    <div class="nav-group" *ngIf="!isAuthenticated">
+      <!-- PAGE LINKS -->
+      <div class="nav-items">
+        <a class="nav-link" routerLink="/about">About</a>
+        <a class="nav-link" routerLink="/contact">Contact</a>
+        <a class="nav-link" routerLink="/become-a-partner">Become a Partner</a>
+      </div>
+      <!-- ICONS -->
+      <div id="basket-icon" class="flex items-center space-x-3 pt-2">
+        <!-- BASKET ICON -->
+        <a aria-label="shop" routerLink="/cart" class="basket">
+          <app-icon name="basket"></app-icon>
+        </a>
+        <button aria-label="hamburger" class="hamburger" (click)="openDrawer()">
+          <app-icon name="hamburgerOff" *ngIf="!showDrawer"></app-icon>
+          <app-icon name="hamburgerOn" *ngIf="showDrawer"></app-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="searchbar-wrapper" *ngIf="hasScrolled">
+    <app-search-bar *ngIf="_showSearchBar"></app-search-bar>
+  </div>
+  <!-- MOBILE DRAWER -->
+  <div *ngIf="showDrawer" class="drawer" (click)="openDrawer()">
+    <a class="nav-link-block" aria-label="about" routerLink="/" *ngIf="isProductPage">Market</a>
+    <a class="nav-link-block" aria-label="about" routerLink="/" *ngIf="isProductPage">Promdi</a>
+    <a class="nav-link-block" aria-label="about" routerLink="/about">About</a>
+    <a class="nav-link-block" aria-label="contact" routerLink="/contact">Contact</a>
+    <a class="nav-link-block" aria-label="become-a-partner" routerLink="/become-a-partner">Become a Partner</a>
+  </div>
+</nav>

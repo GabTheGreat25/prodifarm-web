@@ -1,0 +1,68 @@
+@import "variables.scss";
+
+.card-primary-green {
+  cursor: pointer;
+  @apply bg-primary rounded-lg;
+
+  &:hover {
+    box-shadow: 0px 0px 0px 3px $primary-green inset;
+    background-color: $primary-white !important;
+
+    figure {
+      background-color: $primary-green !important;
+      color: $primary-white !important;
+    }
+
+    p {
+      color: $primary-green !important;
+    }
+  }
+}
+
+.thumbnail {
+  @apply w-80 h-80;
+  &-sm {
+    @apply w-40 h-40;
+  }
+  &-xs {
+    @apply w-20 h-20;
+  }
+  &-xxs {
+    @apply w-10 h-10;
+  }
+}
+
+.badge-pill {
+  @apply px-6 py-1 text-white rounded-full;
+  &.primary {
+    @apply bg-primary;
+  }
+  &.danger {
+    @apply bg-red-600;
+  }
+  &.neutral {
+    @apply bg-neutral-primary;
+  }
+}
+
+$base_size: 10;
+$multipliers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+@each $multiplier in $multipliers {
+  $size: $multiplier * $base_size;
+  .vh-#{$size} {
+    height: #{$size}vh;
+  }
+  .mvh-#{$size} {
+    max-height: #{$size}vh;
+  }
+  .vw-#{$size} {
+    width: #{$size}vw;
+  }
+  .mvw-#{$size} {
+    max-width: #{$size}vw;
+  }
+  .width-#{$size} {
+    width: $size * 1%;
+  }
+}

@@ -1,0 +1,24 @@
+div.billing {
+  @apply p-6 bg-white  text-neutral-500 rounded-lg;
+  .location {
+    @apply pb-3 mb-3 border-b-2 border-neutral-500;
+    &:empty {
+      display: none;
+    }
+  }
+  .breakdown {
+    @apply pb-3 mb-3 border-b-2 border-neutral-500;
+    .breakdown-list {
+      @apply grid gap-6;
+    }
+  }
+  .total {
+    @apply grid grid-flow-col justify-between mb-6;
+    &:empty {
+      display: none;
+    }
+  }
+  .checkout {
+    width: 100%;
+  }
+}

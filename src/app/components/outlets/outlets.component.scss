@@ -1,0 +1,7 @@
+div.outletPage {
+  @apply bg-white grid rounded-lg pt-32 pb-8 px-8;
+  min-height: 100vh;
+  .map-wrapper {
+    @apply h-full w-full;
+  }
+}

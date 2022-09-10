@@ -1,0 +1,19 @@
+<div class="billing">
+  <div class="location">
+    <ng-content select="[location]"></ng-content>
+  </div>
+  <div class="breakdown">
+    <ng-content select="[breakdown-title]"></ng-content>
+    <ul class="breakdown-list">
+      <ng-content select="[breakdown-item]"></ng-content>
+    </ul>
+  </div>
+  <div class="total">
+    <ng-content select="[total-text]"></ng-content>
+    <ng-content select="[amount]"></ng-content>
+  </div>
+  <ng-content select="[vat]"></ng-content>
+  <div class="checkout">
+    <ng-content select="[checkout]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+@import "mixins.scss";
+
+$colors: white $primary-white $primary-green, orange $primary-orange $primary-white, green $primary-green $primary-white;
+
+@each $color, $primary, $secondary in $colors {
+  .btn-pf-#{$color},
+  .btn-pf-#{$color}-lg {
+    @apply text-xl px-5 py-4 font-medium uppercase rounded-md text-center;
+    @include btn($primary, $secondary);
+  }
+
+  .btn-pf-#{$color}-lg {
+    @apply sm:text-2xl sm:px-10;
+  }
+}
+
+button:disabled {
+  @apply pointer-events-none btn-neutral-outline;
+}
+
+.btn-icon {
+  @apply py-1 px-2;
+}
+
+.btn-danger-solid {
+  @apply bg-red-600 text-white rounded-md;
+}
+
+.btn-danger-inverse {
+  @apply text-red-600 bg-white rounded-md;
+  &:hover {
+    @apply btn-danger-solid;
+  }
+}
+
+.btn-neutral-outline {
+  @apply bg-neutral-500 text-white;
+}
+
+.btn-primaryBg {
+  @apply border-2 bg-primary text-white rounded-md font-medium py-2 px-4;
+  &:hover {
+    @apply border-2 border-primary text-primary bg-white;
+  }
+}
+
+.btn-outline-primary {
+  @apply border-2 border-primary text-primary rounded-md font-medium py-2 px-4;
+  &:hover {
+    @apply text-white bg-primary;
+  }
+}
+
+button[class^="btn"] {
+  @apply rounded-md;
+}

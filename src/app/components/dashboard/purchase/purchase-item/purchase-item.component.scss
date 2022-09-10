@@ -1,0 +1,22 @@
+.border-bottom {
+  @apply pb-4 border-b-2 border-neutral-500;
+}
+
+div.purchaseItem {
+  @apply grid gap-4 p-6 bg-white rounded-lg;
+  .header {
+    @apply grid grid-flow-col items-center justify-between border-bottom;
+    .prep-msg {
+      @apply text-primary;
+    }
+  }
+  .body {
+    @apply grid grid-flow-col justify-between border-bottom;
+    .product-info {
+      @apply grid grid-flow-col gap-4 justify-start;
+    }
+  }
+  .footer {
+    @apply justify-self-end;
+  }
+}

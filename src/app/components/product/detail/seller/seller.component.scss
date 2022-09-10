@@ -1,0 +1,24 @@
+@import "button.scss";
+@import "layouts.scss";
+section.user {
+  @apply grid grid-flow-col gap-3 p-10 items-center bg-white rounded-lg;
+  @apply divide-x-2 divide-neutral-500 my-6;
+  .profile {
+    @apply grid gap-3 pr-3;
+    @screen md {
+      @apply grid grid-flow-col gap-3 items-center justify-evenly;
+    }
+    .message-btn {
+      @apply btn-outline-primary;
+    }
+  }
+  .performance {
+    @apply grid gap-4 pl-4 text-neutral-500 list-none items-center;
+    li {
+      @apply text-neutral-500;
+      span {
+        @apply font-medium text-primary;
+      }
+    }
+  }
+}

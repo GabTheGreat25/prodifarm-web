@@ -1,0 +1,53 @@
+.btn {
+  @apply rounded-lg px-2 py-2 bg-primary text-white;
+  &.btn-lg {
+    @apply px-4 py-2;
+    text-align: center;
+  }
+  &.btn-xl {
+    @apply px-6 py-2;
+    text-align: center;
+  }
+  &.btn-2xl {
+    @apply px-6 py-2 pt-2;
+    text-align: center;
+  }
+
+  &:hover {
+    @apply bg-primary-variant;
+  }
+}
+
+.defaultContainer {
+  @apply grid gap-3 items-center;
+  @screen md {
+    @apply grid grid-cols-2;
+  }
+  @screen lg {
+    @apply grid grid-cols-3;
+  }
+}
+
+.products-container {
+  app-card {
+    cursor: pointer;
+  }
+  .badge {
+    @apply bg-neutral-primary rounded-md py-2 px-3 text-white;
+  }
+  .likeButton {
+    @apply bg-neutral-100 rounded-md text-neutral-primary py-2.5 px-3.5;
+  }
+  .product-title {
+    @apply text-xl font-bold;
+  }
+  .product-details {
+    @apply text-neutral-secondary;
+  }
+  .rating-text {
+    @apply text-neutral-secondary inset-y-2;
+  }
+  .price-amount {
+    @apply text-primary text-xl font-bold;
+  }
+}

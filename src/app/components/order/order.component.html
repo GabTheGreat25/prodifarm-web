@@ -1,0 +1,129 @@
+<app-header [disableTabs]="disableTabs" [showSearch]="true"></app-header>
+
+<div class="container-fluid top-banner bg-green py-3 d-none">
+  <div class="container text-center">
+    <h5 class="fw-bolder fc-white">DELIVERING TO:</h5>
+    <h5 class="fc-white">One Gateway Place, Pioneer Street, Mandaluyong, Metro Manila, Philippines</h5>
+  </div>
+</div>
+
+<div class="container-fluid top-banner py-5" style="min-height: 34rem">
+  <div class="row justify-content-center mx-5">
+    <div class="col-md-2 col-12">
+      <div class="container">
+        <ul class="nav flex-column mt-4">
+          <li class="nav-item">
+            <h3 class="nav-link">Categories</h3>
+          </li>
+          <li class="nav-item ms-4">
+            <a class="nav-link fs-5" routerLink="/order/all">All</a>
+          </li>
+          <li class="nav-item ms-4" *ngFor="let item of categories">
+            <a class="nav-link fs-5" routerLink="{{ '/order/' + item.name.toLowerCase() }}">{{ item.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10 col-12 px-5">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" *ngFor="let item of global.ads">
+            <img [src]="item.image" class="d-block w-100" />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-gray py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let item of products; let i = index">
+        <div class="card my-3">
+          <img src="{{ images + item.image }}" class="img-fluid py-3 mx-auto" style="height: 200px" (click)="openModal(template)" />
+          <div class="card-body mx-auto" style="text-align: center">
+            <h5 class="card-title fw-bolder fs-3">{{ item.title }}</h5>
+            <div class="card-text">
+              <span class="fc-green fw-bolder fs-4">&#8369; {{ item.price.toFixed(2) }} </span>
+              <div class="card-text">1kg Price</div>
+            </div>
+            <div class="row">
+              <div class="col-3 d-grid">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  (click)="actionButton('decrement', i)"
+                  [disabled]="item.quantity === 0"
+                >
+                  <i class="las la-minus"></i>
+                </button>
+              </div>
+              <div class="col-6">
+                <input class="form-control text-center" type="text" disabled [ngModel]="item.quantity" placeholder="0" />
+              </div>
+              <div class="col-3 d-grid">
+                <button type="button" class="btn btn-outline-secondary" (click)="actionButton('increment', i)">
+                  <i class="las la-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-12 d-grid">
+                <button
+                  type="button"
+                  class="btn bg-green fc-white fw-bolder"
+                  (click)="addToCart(item._id, item.quantity)"
+                  [disabled]="item.quantity === 0"
+                >
+                  ADD TO CART
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+<div class="">
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Item</h4>
+      <button type="button" class="btn close pull-right fs-1" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="card my-3">
+        <img [src]="apple" class="img-fluid py-3 mx-auto" style="height: 300px" />
+        <div class="card-body mx-auto">
+          <h5 class="card-title fw-bolder fs-3">Apple</h5>
+          <div class="card-text mx-auto">
+            <span class="fc-green fw-bolder fs-4">&#8369; 130.00 </span>
+            <div class="card-text">1kg Price</div>
+            <div class="card-text fw-bolder fs-4">Description:</div>
+            <div class="card-text">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+              takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+              eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+              et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

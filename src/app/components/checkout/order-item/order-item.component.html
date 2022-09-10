@@ -1,0 +1,13 @@
+<div class="order-item">
+  <div class="product-title">
+    <img class="thumbnail-xs" [lazyBgImage]="_orderItem?.sku?.thumbnail ?? ''" [alt]="_orderItem?.sku?.name" />
+    <h1>{{ _orderItem?.sku?.name }}</h1>
+  </div>
+  <p class="justify-self-center">{{ orderPrice | currency: "PHP" }}</p>
+  <div class="order-control">
+    <p>Quantity: {{ _orderItem?.quantity }}</p>
+    <button class="btn-danger-inverse btn-icon" (click)="deleteItem(_orderItem?.sku?._id ?? '')">
+      <app-icon name="closeCircle"></app-icon>
+    </button>
+  </div>
+</div>

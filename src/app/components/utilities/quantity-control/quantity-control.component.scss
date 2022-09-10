@@ -1,0 +1,25 @@
+div.quantity-control {
+  @apply relative;
+  .control-btn {
+    @apply absolute inset-y-0 grid items-center border-primary text-primary border-2 p-2;
+    @apply hover:bg-primary hover:text-white;
+    &:disabled {
+      @apply border-2 border-neutral-500 pointer-events-none text-white;
+    }
+    &.minus {
+      @apply rounded-l-md;
+      left: 0;
+    }
+    &.plus {
+      @apply rounded-r-md;
+      right: 0;
+    }
+  }
+  .form-control {
+    @apply outline-none rounded-md border-t-2 border-b-2 border-l-0 border-r-0 border-neutral-500;
+    @apply py-2 px-9 w-32 text-center text-black;
+    &::-webkit-inner-spin-button {
+      @apply appearance-none;
+    }
+  }
+}

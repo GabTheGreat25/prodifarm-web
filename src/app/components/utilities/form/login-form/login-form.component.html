@@ -1,0 +1,34 @@
+<div [formGroup]="form" class="form-container">
+  <div class="control-group">
+    <div class="icon-input">
+      <input type="text" formControlName="username" name="username" class="form-control" placeholder="Enter phone number or email" />
+      <span>
+        <app-icon name="personInfo" class="emailIcon"></app-icon>
+      </span>
+    </div>
+  </div>
+  <ng-container *ngIf="usernameInvalid">
+    <app-validation-message *ngIf="username.errors?.required" validator="username-required"></app-validation-message>
+    <app-validation-message *ngIf="username.errors?.mobile && username.value" validator="mobile"></app-validation-message>
+    <app-validation-message *ngIf="username.errors?.email" validator="email"></app-validation-message>
+  </ng-container>
+  <div class="control-group">
+    <div class="icon-input">
+      <input
+        [type]="visibility ? 'text' : 'password'"
+        formControlName="password"
+        name="password"
+        class="form-control"
+        placeholder="Password"
+      />
+      <button tabindex="-1" type="button" (click)="toggleVisibility()">
+        <app-icon name="visibilityOn" *ngIf="!visibility" class="visibleIcon"></app-icon>
+        <app-icon name="visibilityOff" *ngIf="visibility" class="visibleIcon"></app-icon>
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="passwordInvalid">
+    <app-validation-message *ngIf="password.errors?.required" validator="required"></app-validation-message>
+    <app-validation-message *ngIf="password.errors?.password" validator="password"></app-validation-message>
+  </ng-container>
+</div>

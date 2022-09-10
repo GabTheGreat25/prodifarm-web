@@ -1,0 +1,66 @@
+<section class="aboutPage">
+  <ng-container *ngFor="let article of articles">
+    <article [ngClass]="article.articleName" [lazyBgImage]="article.image.isBg ? article.image.name : ''" [isBg]="article.image.isBg">
+      <div class="content">
+        <h1 class="content-head" [ngClass]="{ 'text-center': article.isCenterHeading, 'text-5xl': article.articleName === 'about' }">
+          {{article.headings?.[0]}}
+          <span [ngClass]="article.isGreenHeading ? 'text-primary-variant' : 'text-neutral-primary'">
+            {{article.headings?.[1]}}
+          </span>
+          {{article.headings?.[2]}}
+        </h1>
+        <div class="content-body">
+          <ng-container *ngFor="let paragraph of article.paragraphs; let last = last">
+            <p [ngClass]="{ tagline: article.articleName == 'about' && last }" [innerHTML]="paragraph.content"></p>
+          </ng-container>
+        </div>
+      </div>
+      <img [lazyBgImage]="article.image.name" alt="article.image.alt" *ngIf="!article.image.isBg" />
+    </article>
+  </ng-container>
+  <article class="why-promdi">
+    <div class="content">
+      <h1 class="content-head">Why choose <span class="text-primary-variant">PromdiFarm?</span></h1>
+      <div class="cards">
+        <ng-container *ngFor="let card of cards">
+          <app-card padding="0">
+            <img image alt="farmer" [lazyBgImage]="card.image" />
+            <h1 title class="text-center font-bold text-2xl py-5">
+              {{ card.darkText }}
+              <br />
+              <span class="text-primary-variant">{{ card.greenText }}</span>
+            </h1>
+          </app-card>
+        </ng-container>
+      </div>
+    </div>
+  </article>
+  <article class="mission-vision-core">
+    <div class="content">
+      <div class="mission-vision">
+        <ng-container *ngFor="let mv of missionVision">
+          <div class="sub-content">
+            <h1 class="content-head">
+              {{ mv.headingStart }}
+              <span class="text-primary-variant">{{ mv.headingEnd }}</span>
+            </h1>
+            <p>{{ mv.content }}</p>
+          </div>
+        </ng-container>
+      </div>
+      <div class="core-values">
+        <h1 class="content-head">Our <span class="text-primary-variant">Core Values</span></h1>
+        <div class="sub-content">
+          <ng-container *ngFor="let value of coreValues">
+            <div class="content-body">
+              <h5 class="sub-heading text-neutral-primary">
+                {{ value.headingStart }}<span class="text-primary-variant">{{ value.headingEnd }}</span>
+              </h5>
+              <p>{{ value.content }}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

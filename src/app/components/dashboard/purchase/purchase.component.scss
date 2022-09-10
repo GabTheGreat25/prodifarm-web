@@ -1,0 +1,18 @@
+section.purchase-history {
+  @apply grid gap-6;
+  .sort-tabs {
+    @apply grid grid-flow-col items-center px-4 rounded-lg bg-white;
+    .sort-btn {
+      @apply py-3;
+      &:hover {
+        @apply border-b-4 border-primary-t3;
+      }
+      &.active {
+        @apply border-b-4 border-primary-variant pointer-events-none;
+      }
+    }
+  }
+  .order-list {
+    @apply grid gap-4;
+  }
+}

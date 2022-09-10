@@ -1,0 +1,22 @@
+<div class="quantity-control">
+  <button type="button" class="control-btn minus" (click)="decreaseQty()" [disabled]="_count <= 1">
+    <app-icon name="minus"></app-icon>
+  </button>
+  <input
+    copyPaste
+    qtyControl
+    [qtyControlValue]="quantity.value"
+    type="number"
+    class="form-control"
+    [formControl]="quantity"
+    name="quantity"
+    id="quantity"
+    min="1"
+    [max]="_limit"
+    [value]="_count"
+    (change)="changeCount()"
+  />
+  <button type="button" class="control-btn plus" (click)="increaseQty()" [disabled]="_count >= _limit">
+    <app-icon name="plus"></app-icon>
+  </button>
+</div>

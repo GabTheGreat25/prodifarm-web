@@ -1,0 +1,122 @@
+.list-item {
+  @apply py-1 flex;
+}
+
+.logo-sm {
+  @apply sm:h-12 pl-4;
+}
+
+.logo-md {
+  @apply md:h-12;
+}
+
+.logo-lg {
+  @apply lg:h-16 pl-4;
+}
+
+.footer {
+  @apply text-white;
+  @apply px-4 grid grid-cols-2 gap-x-1 gap-y-3 pt-12 pb-4 justify-items-center;
+  @apply sm:grid-cols-3 sm:px-6;
+  @apply md:grid-cols-5 md:px-4 md:gap-x-3;
+  @apply lg:px-12;
+
+  .title {
+    @apply uppercase text-lg font-bold pb-3;
+  }
+
+  .list {
+    @apply text-sm;
+  }
+
+  .info {
+    @apply w-min text-center;
+    @apply lg:w-max lg:text-left;
+  }
+
+  .resources {
+    @apply w-max text-center;
+    @apply lg:w-max lg:text-left;
+  }
+
+  .download {
+    @apply w-max text-center;
+    @apply md:text-left;
+    @apply lg:w-max;
+
+    ul.list {
+      @apply md:flex md:flex-col;
+    }
+  }
+
+  .contact-us {
+    @apply w-max text-center;
+    @apply md:flex md:flex-col;
+    @apply lg:block lg:w-max lg:text-left;
+
+    .title {
+      @apply md:text-left;
+    }
+
+    ul.list {
+      @apply md:space-x-0 md:w-min md:self-center;
+      .item {
+        @apply list-item justify-center;
+        @apply md:justify-start;
+        min-height: 48px;
+        min-width: 48px;
+
+        .link {
+          @apply ml-2;
+        }
+      }
+    }
+  }
+
+  .connect {
+    @apply flex flex-col justify-center col-span-2;
+    @apply md:col-span-1 md:justify-start md:w-full;
+    @apply lg:block lg:w-max lg:text-left;
+
+    div.title {
+      @apply text-center;
+      @apply lg:block lg:w-full lg:text-left;
+    }
+
+    ul.list {
+      @apply flex justify-between w-full space-x-4;
+      @apply md:space-x-0 md:w-min md:self-center md:flex-col;
+
+      li {
+        @apply md:flex md:justify-center items-center;
+        .item {
+          @apply list-item justify-start items-center;
+          @apply md:w-full;
+
+          .label {
+            @apply ml-2;
+          }
+        }
+      }
+    }
+  }
+
+  .trademark {
+    @apply w-full flex justify-between items-center col-span-2;
+    @apply sm:col-span-3;
+    @apply md:col-span-5;
+    @apply lg:grid lg:grid-cols-5 lg:justify-items-center;
+
+    .promdi {
+      @apply lg:col-span-4 lg:justify-self-start;
+      .logo {
+        cursor: pointer;
+        @apply h-10 w-full logo-sm logo-md logo-lg pl-4;
+      }
+    }
+
+    .copyright {
+      @apply text-sm;
+    }
+  }
+}

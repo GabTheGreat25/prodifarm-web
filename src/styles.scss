@@ -1,0 +1,56 @@
+@import "button.scss";
+@import "variables.scss";
+@import "inputs.scss";
+@import "mixins.scss";
+@import "layouts.scss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Roboto", "Rubik", sans-serif;
+  font-size: 16px;
+  background-color: $primary-white;
+  margin: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", "Roboto", sans-serif;
+}
+
+img.logo-icon {
+  @apply h-16 mx-auto;
+}
+
+img.avatar {
+  @apply w-16 h-16 rounded-full border-2 border-primary;
+}
+
+.avatar {
+  @apply w-16 h-16 rounded-full;
+}
+
+img[class^="thumbnail"] {
+  @apply object-cover mx-auto rounded-sm;
+}
+
+a:hover {
+  color: unset;
+}
+
+@layer base {
+  footer {
+    background: #263238;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="products-container" [ngClass]="containerClass">
+  <app-card *ngFor="let product of products" [product]="product">
+    <span badge class="badge" *ngIf="product.tags.length">{{ product.tags[0] }}</span>
+    <button like class="likeButton">
+      <app-icon name="heart"></app-icon>
+    </button>
+    <img image [lazyBgImage]="product.images[0]" class="thumbnail-sm" />
+    <h1 title class="product-title">{{ product.name }}</h1>
+    <p content class="product-details">
+      {{ product.description | slice: 0:30 }}
+      <span *ngIf="product.description.length > 30">...</span>
+    </p>
+    <app-rating stars [rating]="product.ratings" class="text-3xl"></app-rating>
+    <span rating class="rating-text">({{ product.ratings }})</span>
+    <h1 price class="price-amount">{{ product.skus[0]?.price | currency: "PHP" }}</h1>
+    <button bayong class="btn-primaryBg">View Product</button>
+  </app-card>
+</div>

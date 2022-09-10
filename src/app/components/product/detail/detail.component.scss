@@ -1,0 +1,96 @@
+@import "variables.scss";
+@import "layouts.scss";
+@import "button.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-black;
+}
+
+main.detail-page {
+  @apply bg-neutral-50 text-neutral-500;
+  padding-top: 10%;
+  .main-content {
+    @apply grid gap-4 width-90 mx-auto;
+    @screen md {
+      @apply grid grid-flow-col gap-4;
+      grid-auto-columns: 1fr 0.25fr;
+    }
+    .product-details {
+      .product-info {
+        @apply grid gap-3 bg-white rounded-lg p-10 justify-center text-justify;
+        @screen lg {
+          @apply grid grid-cols-2 gap-6 mb-4 text-left;
+        }
+        .product-data {
+          .heading {
+            @apply text-center;
+            @screen md {
+              @apply text-left;
+            }
+            .rating {
+              @apply inline-grid grid-flow-col justify-start items-center gap-3;
+            }
+            .price {
+              @apply text-3xl font-medium text-primary my-4;
+            }
+          }
+          .description {
+            @apply mb-3;
+          }
+          .sku-collection {
+            .sku-item {
+              @apply h-16 w-16 rounded-md cursor-pointer;
+              &:hover {
+                @apply border-2 border-primary-t4;
+              }
+              &.selected {
+                @apply border-2 border-primary pointer-events-none;
+              }
+            }
+          }
+          .quantity {
+            @apply grid grid-flow-col gap-4 justify-center items-center mb-3;
+            @screen md {
+              @apply justify-start;
+            }
+            .quantity-group {
+              @apply relative;
+              .quantity-control {
+                @apply absolute inset-y-0 grid items-center border-primary border-2 p-2;
+                &.left {
+                  left: 0;
+                }
+                &.right {
+                  right: 0;
+                }
+              }
+              .form-control {
+                @apply outline-none border-t-2 border-b-2 border-neutral-500 py-2 px-9 w-32 text-center text-black;
+                &::-webkit-inner-spin-button {
+                  @apply appearance-none;
+                }
+              }
+            }
+          }
+          .button-group {
+            @apply grid grid-flow-col gap-3 items-center justify-evenly;
+            @screen md {
+              @apply justify-start;
+            }
+            .cart-btn {
+              @apply btn-outline-primary;
+            }
+            .checkout-btn {
+              @apply btn-primaryBg;
+            }
+          }
+        }
+      }
+    }
+  }
+}

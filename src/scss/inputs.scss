@@ -1,0 +1,63 @@
+@import "variables.scss";
+
+.form-container {
+  @apply grid gap-4;
+}
+
+.form-group {
+  @apply grid gap-4;
+  @screen md {
+    @apply grid-flow-col;
+  }
+}
+
+.icon-input {
+  @apply relative;
+  button,
+  span {
+    @apply absolute inset-y-0 right-0 pr-3 grid items-center;
+  }
+}
+
+.control-group {
+  @apply grid gap-2;
+}
+
+.check-group {
+  @apply grid grid-flow-col gap-2 items-center;
+}
+.radio-group.payment {
+  @apply grid items-center p-4 bg-neutral-50 rounded-lg;
+  grid-template-columns: 2rem auto;
+}
+
+.focus-normal {
+  @apply ring-2 ring-neutral-primary;
+}
+
+input[type="number"].form-control {
+  &::-webkit-inner-spin-button {
+    @apply appearance-none;
+  }
+}
+
+select.form-control {
+  @apply outline-none p-2 rounded-lg bg-neutral-50 ring-2 ring-primary w-full;
+  &:focus {
+    @apply ring-2 ring-opacity-60;
+  }
+}
+
+input.form-control,
+textarea.form-control {
+  @apply outline-none p-2 rounded-lg bg-neutral-50 ring-2 ring-neutral-300 w-full;
+  &:focus {
+    @apply focus-normal;
+  }
+  &.ng-invalid.ng-touched {
+    @apply ring-2 ring-opacity-70 ring-red-500;
+  }
+  &.ng-valid.ng-touched {
+    @apply ring-2 ring-opacity-70 ring-primary;
+  }
+}

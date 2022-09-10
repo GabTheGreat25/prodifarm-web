@@ -1,0 +1,20 @@
+<section class="profile-container">
+  <h1 class="text-neutral-primary font-bold text-xl">My Profile</h1>
+  <p class="text-neutral-200">Manage and protect your account</p>
+  <div class="grid grid-flow-col justify-start gap-3 items-center pb-3 mb-6 border-b-2 border-neutral-100"></div>
+  <div class="grid grid-cols-2 gap-8">
+    <div class="vertical-line"></div>
+    <div class="grid justify-center items-center">
+      <app-account-form formControlName="account"></app-account-form>
+      <button class="btn-save">Save</button>
+    </div>
+    <div class="grid justify-center items-center">
+      <span class="avatar">
+        <img [lazyBgImage]="user?.avatar ?? ''" alt="" *ngIf="user?.avatar" />
+        <app-icon name="personCircle" class="avatar-item" *ngIf="!user?.avatar"></app-icon>
+      </span>
+      <button class="py-2 mt-20 ml-10 text-white rounded-lg bg-primary w-44">Select Image</button>
+      <p class="text-neutral-200 text-center pt-4 pl-8">File Extension: .JPEG, .PNG</p>
+    </div>
+  </div>
+</section>

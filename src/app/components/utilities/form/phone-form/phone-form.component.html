@@ -1,0 +1,18 @@
+<div [formGroup]="form" class="form-container">
+  <div class="control-group">
+    <label for="phoneNumber">Mobile Number</label>
+    <input type="text" placeholder="Enter your phone number" formControlName="phoneNumber" class="form-control" />
+    <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
+      <app-validation-message *ngIf="phoneNumber.errors?.required" validator="required"></app-validation-message>
+      <app-validation-message *ngIf="phoneNumber.errors?.mobile && phoneNumber.value" validator="mobile"></app-validation-message>
+    </ng-container>
+  </div>
+  <label for="verifCode">Verification Code</label>
+  <div class="control-group grid grid-cols-4">
+    <input type="text" formControlName="verifCode" class="form-control col-span-3" placeholder="Verification Code" />
+    <button class="border-neutral-200 border-2 rounded-xl mx-auto px-6 justify-end items-end">Send Code</button>
+  </div>
+  <ng-container *ngIf="codeInvalid">
+    <app-validation-message *ngIf="verifCode.errors?.required" validator="required"></app-validation-message>
+  </ng-container>
+</div>

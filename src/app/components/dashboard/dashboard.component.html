@@ -1,0 +1,46 @@
+<main class="dashboard">
+  <div class="content">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="image-wrapper">
+          <img [lazyBgImage]="user?.avatar ?? ''" alt="" *ngIf="user?.avatar" />
+          <app-icon name="personCircle" class="avatar"></app-icon>
+        </div>
+        <div class="name">
+          <h1>{{ user?.firstName }} {{ user?.lastName }}</h1>
+          <button class="editProfile-btn">Edit Profile</button>
+        </div>
+      </div>
+      <nav class="dashboard-links">
+        <a [ngClass]="{ 'active-link': subLinkRef.isActive }" routerLink="/dashboard">My Account</a>
+        <div #subLinkRef="routerLinkActive" class="sub-links" routerLinkActive="sub-active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['profile'] } }]">Profile</a>
+          <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['address'] } }]">Addresses</a>
+          <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['set-password'] } }]">Set Password</a>
+        </div>
+        <ng-container *ngIf="user?.type?.toLowerCase() === 'customer'; else farmerLinks">
+          <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['purchase'] } }]">My Purchase</a>
+        </ng-container>
+        <ng-template #farmerLinks>
+          <a [ngClass]="{ 'active-link': productLinkRef.isActive }" [routerLink]="['/dashboard', { outlets: { dashboard: ['products'] } }]"
+            >My Products</a
+          >
+          <div
+            #productLinkRef="routerLinkActive"
+            class="sub-links"
+            routerLinkActive="sub-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['products'] } }]">Products</a>
+            <a routerLinkActive="active-link" [routerLink]="['/dashboard', { outlets: { dashboard: ['add-product'] } }]">Add New Product</a>
+          </div>
+          <a [routerLink]="['/dashboard', { outlets: { dashboard: ['shipments'] } }]">My Shipments</a>
+        </ng-template>
+        <a aria-label="logout" (click)="logout()" class="logout-link">Logout</a>
+      </nav>
+    </aside>
+    <section class="main-content">
+      <router-outlet name="dashboard"></router-outlet>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,23 @@
+.section {
+  @apply grid items-center p-8;
+  min-height: 100vh;
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.5);
+    @apply rounded-lg shadow-lg grid items-center gap-4 p-8;
+
+    .title {
+      @apply text-center text-4xl tracking-tight leading-10 font-extrabold text-gray-800;
+      @apply sm:text-5xl sm:leading-none;
+    }
+
+    .image {
+      @apply mx-auto;
+      height: 25rem;
+    }
+
+    .link {
+      @apply justify-self-center;
+    }
+  }
+}

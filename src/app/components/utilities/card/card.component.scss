@@ -1,0 +1,56 @@
+.card {
+  max-width: 32rem !important;
+  @apply border-neutral-100 border-4 rounded-xl;
+  .card-content {
+    @apply bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg;
+    .like {
+      position: absolute;
+      top: 3%;
+      right: 5%;
+      &:empty {
+        display: none;
+      }
+    }
+    .header-content {
+      text-align: center;
+      @screen lg {
+        text-align: left;
+      }
+    }
+    .badge {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      &:empty {
+        display: none;
+      }
+    }
+    .title-content {
+      @apply grid grid-flow-row w-full justify-center items-center;
+      &:empty {
+        display: none;
+      }
+    }
+    .card-submit {
+      @apply grid grid-flow-col w-full justify-center items-center;
+      &:empty {
+        display: none;
+      }
+    }
+    .star-rating {
+      @apply mb-3 relative;
+      &:empty {
+        display: none;
+      }
+    }
+    .price-section {
+      @apply grid;
+      @screen md {
+        @apply grid grid-flow-col justify-between items-center;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}

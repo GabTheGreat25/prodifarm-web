@@ -1,0 +1,33 @@
+main.checkoutPage {
+  @apply bg-neutral-50;
+  min-height: 100vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  .content {
+    @apply grid gap-4 mx-auto;
+    width: 90%;
+    @screen lg {
+      @apply grid grid-flow-col;
+      grid-auto-columns: 1fr 0.5fr;
+    }
+  }
+  .orders {
+    @apply bg-white rounded-lg p-6 mb-4;
+    .heading {
+      @apply font-semibold pb-3 mb-3 border-b-2 border-neutral-500;
+    }
+    .order-list {
+      @apply grid gap-3;
+    }
+  }
+  .billing {
+    form {
+      .form-section {
+        @apply grid gap-3 p-6 bg-white rounded-lg;
+        .section-title {
+          @apply text-lg font-semibold;
+        }
+      }
+    }
+  }
+}

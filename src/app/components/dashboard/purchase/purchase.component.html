@@ -1,0 +1,16 @@
+<section class="purchase-history">
+  <div class="sort-tabs">
+    <button
+      class="sort-btn"
+      [ngClass]="{ active: sortState === button.type }"
+      *ngFor="let button of sortButtons"
+      (click)="sortProducts(button.type)"
+    >
+      {{ button.name | titlecase }}
+    </button>
+  </div>
+  <app-search-bar (handleSubmit)="search($event)"></app-search-bar>
+  <div class="order-list">
+    <app-purchase-item [order]="order" *ngFor="let order of orders"></app-purchase-item>
+  </div>
+</section>

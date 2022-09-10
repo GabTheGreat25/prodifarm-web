@@ -1,0 +1,13 @@
+<div class="images">
+  <img *ngIf="_thumbnail" class="thumbnail" [lazyBgImage]="_thumbnail" alt="thumbnail" />
+  <div class="gallery">
+    <img
+      class="thumbnail-xs"
+      [lazyBgImage]="image"
+      alt="Gallery Image"
+      (click)="viewImage(image)"
+      role="button"
+      *ngFor="let image of _images"
+    />
+  </div>
+</div>

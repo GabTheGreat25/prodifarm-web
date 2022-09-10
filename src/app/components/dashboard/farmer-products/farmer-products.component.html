@@ -1,0 +1,36 @@
+<section class="farmer-products">
+  <div class="sort-tabs">
+    <button
+      class="sort-btn"
+      [ngClass]="{ active: sortState === button.type }"
+      *ngFor="let button of sortButtons"
+      (click)="sortProducts(button.type)"
+    >
+      {{ button.name | titlecase }}
+    </button>
+  </div>
+  <div class="main-content">
+    <form [formGroup]="searchFilter" class="form-container">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Product Name" formControlName="productName" />
+        <select name="category" id="category" class="form-control">
+          <option value="">Choose Category</option>
+          <option [ngValue]="category._id" *ngFor="let category of categories">{{ category?.name }}</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button class="btn-outline">Reset</button>
+        <button type="submit" class="btn-primaryBg">Search</button>
+      </div>
+    </form>
+    <div class="products">
+      <div class="header">
+        <h1 class="title">My Product List</h1>
+        <button class="btn-primaryBg" [routerLink]="['/dashboard', { outlets: { dashboard: ['add-product'] } }]">+ Add Product</button>
+      </div>
+      <div class="product-list">
+        <app-farmer-product-item [category]="getProductCategory(sku)" [sku]="sku" *ngFor="let sku of skus"></app-farmer-product-item>
+      </div>
+    </div>
+  </div>
+</section>

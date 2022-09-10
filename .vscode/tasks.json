@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "deploy",
+      "type": "shell",
+      "command": "ng build --prod && cd dist/promdifarm-landing && aws s3 rm s3://promdifarm-website --recursive && aws s3 sync . s3://promdifarm-website --cache-control max-age=31536000"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+section.login-page {
+  @apply py-24 px-4 bg-cover grid items-center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  .close-btn {
+    @apply text-red-600;
+  }
+  .title {
+    @apply font-bold text-2xl text-primary text-center;
+  }
+}

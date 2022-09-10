@@ -1,0 +1,25 @@
+<div class="farmer-product-item">
+  <img class="thumbnail-xs" [lazyBgImage]="_sku.thumbnail" [alt]="_sku.name" />
+  <p>{{ _sku?.name }}</p>
+  <p>{{ _sku?.price | currency: "PHP" }}</p>
+  <p>Quantity: {{ _sku?.quantity }}</p>
+  <p>{{ _category?.name }}</p>
+  <select name="publish" class="form-control">
+    <ng-container *ngIf="isIProduct(_sku?.product, 'published')">
+      <option value="true">Publish</option>
+      <option value="false">Draft</option>
+    </ng-container>
+    <ng-container *ngIf="!isIProduct(_sku?.product, 'published')">
+      <option value="false">Draft</option>
+      <option value="true">Publish</option>
+    </ng-container>
+  </select>
+  <p class="btn-group">
+    <button class="btn-icon warning">
+      <app-icon name="pencil"></app-icon>
+    </button>
+    <button class="btn-icon danger">
+      <app-icon name="trash"></app-icon>
+    </button>
+  </p>
+</div>

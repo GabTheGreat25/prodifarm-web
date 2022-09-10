@@ -1,0 +1,43 @@
+$color-intensity: 25%;
+
+/* PRIMARY COLOR */
+$primary-white: #ffffff;
+$primary-dark: #414042;
+$primary-orange: #fbb040;
+$primary-green: #39b54a;
+$primary-gray: #637381;
+
+/* SECONDARY COLOR */
+$secondary-green: #e3f1df;
+$secondary-gray: #cececf;
+
+/* LIGHT VERSION */
+$primary-orange-light: lighten(#fbb040, $color-intensity);
+$primary-green-light: lighten(#39b54a, $color-intensity);
+$primary-gray-light: lighten(#637381, $color-intensity);
+$secondary-green-light: lighten(#e3f1df, $color-intensity);
+$secondary-gray-light: lighten(#cececf, $color-intensity);
+
+/* DARK VERSION */
+$primary-orange-dark: darken(#fbb040, $color-intensity);
+$primary-green-dark: darken(#39b54a, $color-intensity);
+$primary-gray-dark: darken(#637381, $color-intensity);
+$secondary-green-dark: darken(#e3f1df, $color-intensity);
+$secondary-gray-dark: darken(#cececf, $color-intensity);
+
+/* SIZE */
+$min-height: 48rem;
+$section-min-height: 75rem;
+$btn-w: 18rem;
+$btn-h-sm: 2.5rem;
+$btn-h-md: 4rem;
+
+/* SHADOW */
+$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+$bg-shadow-gradient: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.2) 85%);
+
+/* WIDTH */
+$vw-xxs: calc(100vw * 0.05);
+$vw-xs: calc(100vw * 0.075);
+$vw-sm: calc(100vw * 0.15);
+$vw-md: calc(100vw * 0.2);

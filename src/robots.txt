@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /cgi-bin/
+Disallow: /images/
+Disallow: /verify/email
+Disallow: /verify/sms
+Allow: /home
+Allow: /about
+Allow: /contact
+Allow: /become-a-partner

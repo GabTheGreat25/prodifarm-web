@@ -1,0 +1,46 @@
+<main class="cartPage">
+  <div class="content">
+    <div class="cartContainer">
+      <section class="batchControl">
+        <div class="check-group">
+          <input type="checkbox" name="selectAll" id="selectAll" [formControl]="selectAll" />
+          <label for="selectAll">Select All</label>
+        </div>
+        <button class="delete-btn" (click)="batchDelete()">
+          <app-icon name="trash"></app-icon>
+          Delete
+        </button>
+      </section>
+      <section class="cart-items" *ngIf="cartItems.length">
+        <ng-container *ngFor="let cartItem of cartItems; let i = index">
+          <app-cart-item
+            [selectAll]="selectAll.value"
+            [cartItem]="cartItem"
+            (selectionChange)="handleSelectionChange($event)"
+          ></app-cart-item>
+        </ng-container>
+      </section>
+    </div>
+    <app-billing>
+      <div location class="location">
+        <h1 class="mb-3">Location</h1>
+        <h2><app-icon name="locationOn"></app-icon> Di makita st.</h2>
+      </div>
+      <h1 breakdown-title class="text-black mb-3">Order Summary</h1>
+      <li breakdown-item class="grid grid-flow-col justify-between items-center">
+        <span>Subtotal ({{ totalItems }} items)</span>
+        <span>{{ subtotal | currency: "PHP" }}</span>
+      </li>
+      <li breakdown-item class="grid grid-flow-col justify-between items-center">
+        <span>Shipping Fee</span>
+        <span>{{ shippingFee | currency: "PHP" }}</span>
+      </li>
+      <h1 total-text>Total</h1>
+      <div amount class="text-right">
+        <h2 class="text-primary">{{ total | currency: "PHP" }}</h2>
+        <small class="block">VAT included when applicable</small>
+      </div>
+      <button checkout class="btn-primaryBg w-full" routerLink="/checkout" [disabled]="!cartItems.length">Checkout</button>
+    </app-billing>
+  </div>
+</main>

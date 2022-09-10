@@ -1,0 +1,36 @@
+section.farmer-products {
+  @apply grid gap-6;
+  .sort-tabs {
+    @apply grid grid-flow-col items-center px-4 rounded-lg bg-white;
+    .sort-btn {
+      @apply py-3;
+      &:hover {
+        @apply border-b-4 border-primary-t3;
+      }
+      &.active {
+        @apply text-black border-b-4 border-primary-variant pointer-events-none;
+      }
+    }
+  }
+  .main-content {
+    @apply grid gap-4 bg-white rounded-lg p-6;
+    .form-container {
+      @apply pb-6 border-b-2 border-neutral-300;
+      .button-group {
+        @apply grid grid-flow-col gap-4 items-center justify-end;
+      }
+    }
+    .products {
+      @apply pt-6;
+      .header {
+        @apply grid grid-flow-col items-center justify-between mb-3;
+        .title {
+          @apply text-black font-medium;
+        }
+      }
+      .product-list {
+        @apply grid gap-4;
+      }
+    }
+  }
+}

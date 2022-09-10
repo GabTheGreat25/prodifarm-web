@@ -1,0 +1,21 @@
+<section class="user">
+  <div class="profile">
+    <img class="avatar" *ngIf="user?.avatar" [lazyBgImage]="user?.avatar ?? ''" alt="Avatar" />
+    <div class="role">
+      <h1 class="font-medium">{{ user?.firstName }} {{ user?.lastName }}</h1>
+      <span>{{ user?.type }}</span>
+    </div>
+    <button class="message-btn">
+      <app-icon name="email"></app-icon>
+      Message Farmer
+    </button>
+  </div>
+  <ul class="performance">
+    <li>
+      Date Joined <span>{{ user?.DateCreated | date: "longDate" }}</span>
+    </li>
+    <li>
+      Products <span>{{ 10 }}</span>
+    </li>
+  </ul>
+</section>

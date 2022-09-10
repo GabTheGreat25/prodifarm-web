@@ -1,0 +1,57 @@
+<section class="categories width-90">
+  <h1 class="text-lg mb-3 font-bold">Browse by Categories</h1>
+  <div class="category-container">
+    <div class="category ingredients" [lazyBgImage]="salad" [isBg]="true">
+      <div class="category-content">
+        <h1 class="category-heading">
+          Shop for
+          <span class="block">
+            <strong class="font-bold"> Fresh </strong>
+            Ingredients
+          </span>
+        </h1>
+        <button class="btn btn-xl" (click)="goto('fresh')">Shop Here</button>
+      </div>
+    </div>
+    <div class="category rice-fruit">
+      <ng-container *ngFor="let item of produce; let i = index">
+        <div [ngClass]="item.category" [lazyBgImage]="item.image" [isBg]="true">
+          <div class="category-content">
+            <h1 class="category-heading">
+              <ng-container *ngIf="i < 1; else otherContent">
+                {{ item.text }}
+                <span class="block">
+                  <strong>{{ item.boldText }}</strong>
+                </span>
+              </ng-container>
+              <ng-template #otherContent>
+                <span class="block">
+                  <strong>{{ item.boldText }}</strong>
+                </span>
+                {{ item.text }}
+              </ng-template>
+            </h1>
+            <button class="btn btn-xl" (click)="goto(item.category)">{{ item.buttonText }}</button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="category meat-fish">
+      <ng-container *ngFor="let item of proteins">
+        <div [ngClass]="item.category" [lazyBgImage]="item.image" [isBg]="true">
+          <div class="category-content">
+            <h1 class="category-heading">
+              {{ item.text }}
+              <span class="block">
+                <strong> {{ item.boldText }}</strong>
+              </span>
+            </h1>
+            <button class="btn btn-xl" (click)="goto(item.category)">
+              {{ item.buttonText }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

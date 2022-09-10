@@ -1,0 +1,23 @@
+<div [formGroup]="form" class="form-container">
+  <div class="form-group">
+    <div class="control-group">
+      <label for="firstName">First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" placeholder="First Name" />
+    </div>
+    <div class="control-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name" />
+    </div>
+  </div>
+  <ng-container *ngIf="nameInvalid">
+    <app-validation-message *ngIf="nameErrors" validator="name-required"></app-validation-message>
+  </ng-container>
+  <div class="control-group">
+    <label for="phoneNumber">Mobile Number</label>
+    <input type="text" placeholder="09691234567" formControlName="phoneNumber" class="form-control" />
+    <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
+      <app-validation-message *ngIf="phoneNumber.errors?.required" validator="required"></app-validation-message>
+      <app-validation-message *ngIf="phoneNumber.errors?.mobile && phoneNumber.value" validator="mobile"></app-validation-message>
+    </ng-container>
+  </div>
+</div>

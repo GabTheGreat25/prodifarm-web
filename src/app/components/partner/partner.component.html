@@ -1,0 +1,10 @@
+<section class="body" [lazyBgImage]="promdifarmBG" [isBg]="true">
+  <div class="content">
+    <app-card *ngFor="let card of cards">
+      <img image [lazyBgImage]="card.image" class="thumbnail" />
+      <h1 title class="card-title">{{ card.title }}</h1>
+      <p content class="card-content">{{ card.content }}</p>
+      <button submit class="btn-submit bg-primary" (click)="goto(card.btn.url)">{{ card.btn.name }}</button>
+    </app-card>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+@import "variables.scss";
+@import "layouts.scss";
+
+.heading {
+  @apply mb-5 font-bold;
+}
+
+section.list-page {
+  @apply grid grid-flow-col gap-6 px-14;
+  grid-template-columns: 0.5fr 2fr;
+  padding-top: 15%;
+  @screen sm {
+    padding-top: 10%;
+  }
+  .filters {
+    .sidebar-header {
+      @apply grid grid-flow-col justify-between;
+    }
+    .filter-section {
+      @apply mb-3;
+      .content {
+        @apply pl-5;
+        .check-group {
+          @apply text-neutral-300 grid grid-flow-col items-center gap-3 justify-start;
+          .form-control[type="checkbox"] {
+            @apply appearance-none relative h-4 w-4 border-2 border-neutral-300 rounded-sm bg-white align-top bg-center bg-contain checked:bg-primary;
+            &:checked::after {
+              @apply absolute text-white left-0 font-semibold;
+              content: "\2713";
+              top: -6px;
+            }
+            &:checked + label {
+              @apply text-black;
+            }
+          }
+        }
+      }
+      .number-group {
+        @apply grid grid-flow-col items-center gap-3 justify-start mb-3;
+        .form-control {
+          @apply outline-none ring-2 ring-neutral-primary rounded-sm w-20 px-2 py-1 focus:ring-primary focus:ring-opacity-60 focus:ring-4;
+          &::-webkit-inner-spin-button {
+            @apply appearance-none;
+          }
+        }
+      }
+      .rangeButton {
+        @apply py-2 bg-primary text-white rounded-md w-full;
+      }
+    }
+  }
+}
+
+.sortButtons {
+  .sortButton {
+    @apply px-6 py-2 rounded-lg border-2 border-neutral-300 text-neutral-300;
+    &.active {
+      @apply border-primary bg-primary text-white;
+    }
+  }
+}
